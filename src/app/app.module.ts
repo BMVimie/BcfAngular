@@ -5,6 +5,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule} from '@angular/router'
 import {FormsModule} from '@angular/forms';
 
+// services
+import {AuthService} from './services/auth.service'
+import {AuthGuard} from './services/auth-guard.service'
+
 import { AppComponent } from './app.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { PageFooterComponent } from './page-footer/page-footer.component';
@@ -22,7 +26,8 @@ const appRoutes=[
   { path: 'home' , component: WelcomePageComponent },
   { path: 'explanation' , component: ExplanationPageComponent },
   { path: 'allprojects' , component: AllProjectsPageComponent },
-  { path: 'createproject' , component: CreateProjectPageComponent },
+  { path: 'allprojects/):id', component: AllProjectsPageComponent },
+  { path: 'createproject' , canActivate: [AuthGuard], component: CreateProjectPageComponent },
   { path: 'oneproject' , component: OneProjectPageComponent },
   { path: 'contact' , component: ContactPageComponent },
   { path: 'connexion' , component: ConnexionPageComponent },
@@ -51,7 +56,11 @@ const appRoutes=[
     RouterModule.forRoot(appRoutes), // add routes in imports
     FormsModule // add forms module in imports
   ],
-  providers: [],
+  providers: [
+     // services imported
+    AuthService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

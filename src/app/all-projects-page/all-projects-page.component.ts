@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-all-projects-page',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllProjectsPageComponent implements OnInit {
 
-  constructor() { }
+  name:String;
+
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+      this.name = this.route.snapshot.params['id'];
   }
 
 }
