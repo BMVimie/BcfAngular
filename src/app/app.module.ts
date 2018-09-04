@@ -20,11 +20,17 @@ import { ConnexionPageComponent } from './connexion-page/connexion-page.componen
 import { CreateProjectPageComponent } from './create-project-page/create-project-page.component';
 import { ExplanationPageComponent } from './explanation-page/explanation-page.component';
 import { LegalNoticePageComponent } from './legal-notice-page/legal-notice-page.component';
+import { AdvicesPageComponent } from './advices-page/advices-page.component';
+import { PrivacyPolicyPageComponent } from './privacy-policy-page/privacy-policy-page.component';
+import { RulesPageComponent } from './rules-page/rules-page.component';
 
 // define all routes links
 const appRoutes=[
   { path: 'home' , component: WelcomePageComponent },
   { path: 'explanation' , component: ExplanationPageComponent },
+  { path: 'privacy' , component: PrivacyPolicyPageComponent },
+  { path: 'advices' , component: AdvicesPageComponent },
+  { path: 'rules' , component: RulesPageComponent },
   { path: 'allprojects' , component: AllProjectsPageComponent },
   { path: 'allprojects/):id', component: AllProjectsPageComponent },
   { path: 'createproject' , canActivate: [AuthGuard], component: CreateProjectPageComponent },
@@ -49,7 +55,10 @@ const appRoutes=[
     ConnexionPageComponent,
     CreateProjectPageComponent,
     ExplanationPageComponent,
-    LegalNoticePageComponent
+    LegalNoticePageComponent,
+    AdvicesPageComponent,
+    PrivacyPolicyPageComponent,
+    RulesPageComponent
   ],
   imports: [
     BrowserModule,

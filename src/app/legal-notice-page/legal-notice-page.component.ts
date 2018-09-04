@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import {ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-legal-notice-page',
   templateUrl: './legal-notice-page.component.html',
-  styleUrls: ['./legal-notice-page.component.scss']
+  styleUrls: ['../app.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LegalNoticePageComponent implements OnInit {
 

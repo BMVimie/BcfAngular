@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import {ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-connexion-page',
   templateUrl: './connexion-page.component.html',
-  styleUrls: ['./connexion-page.component.scss']
+  styleUrls: ['../app.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ConnexionPageComponent implements OnInit {
 

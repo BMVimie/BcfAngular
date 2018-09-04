@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import {ViewEncapsulation} from '@angular/core';
 
 @Component({
-  selector: 'app-page-footer',
-  templateUrl: './page-footer.component.html',
+  selector: 'app-rules-page',
+  templateUrl: './rules-page.component.html',
   styleUrls: ['../app.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class PageFooterComponent implements OnInit {
+export class RulesPageComponent implements OnInit {
 
   constructor() { }
 
