@@ -23,6 +23,7 @@ import { LegalNoticePageComponent } from './legal-notice-page/legal-notice-page.
 import { AdvicesPageComponent } from './advices-page/advices-page.component';
 import { PrivacyPolicyPageComponent } from './privacy-policy-page/privacy-policy-page.component';
 import { RulesPageComponent } from './rules-page/rules-page.component';
+import { AccountPageComponent } from './account-page/account-page.component';
 
 // define all routes links
 const appRoutes=[
@@ -58,7 +59,8 @@ const appRoutes=[
     LegalNoticePageComponent,
     AdvicesPageComponent,
     PrivacyPolicyPageComponent,
-    RulesPageComponent
+    RulesPageComponent,
+    AccountPageComponent
   ],
   imports: [
     BrowserModule,

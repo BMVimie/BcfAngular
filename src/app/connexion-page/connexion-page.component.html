@@ -1,6 +1,10 @@
 <div class="writings">
-    <br>
-    <br>
+    <form class="form-inline">
+            <input class="form-control mr-sm-2" type="text" placeholder="login" name="formLogin">
+            <br>
+            <input class="form-control mr-sm-2" type="text" placeholder="mdp" name="formPassword">
+            <button type="submit" class="btn btn-success glyphicon glyphicon-search"></button>
+          </form>
 
     <h2>Accéder à votre compte</h2>
     <button class="btn btn-success" *ngIf="!authStatus" (click)="onSignIn()">Se connecter</button>

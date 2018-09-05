@@ -1,55 +1,70 @@
-<div class="headerRoot">
+<!-- ////////////////////////////////////////////// -->
 
-  <div class="headerLogo">
-    <!-- Investi En Bretagne logo + access to home/welcome page -->
-    <a routerLink="/" class="headerLogo">
-      <img id="investi-en-bretagne-logo-onBlack" src="assets/img/Investi_En_Bretagne_logo_onBlack.png" alt="Investi_En_Bretagne_logo_onBlack">
-    </a>
+<div class="container-fluid headerBackgroundImg">
+  <div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-2">
+      <a routerLink="/">
+        <img id="investi-en-bretagne-logo-onBlack" src="assets/img/Investi_En_Bretagne_logo_onBlack.png" alt="Investi_En_Bretagne_logo_onBlack"
+          class="headerLogo">
+      </a>
+    </div>
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-4" id="headerConnectDiv">
+
+      
+      &nbsp;
+      <a routerLink="/connexion">
+          <span class="glyphicon glyphicon-log-in gi-2x colorWhite"></span>
+        </a>
+
+      
+
+    </div>
+    <div class="col-md-3">
+    </div>
   </div>
 
 
-  <div class="headerConnect">
-    <!-- "connexion" button + access to connexion page -->
-    &nbsp;&nbsp;
-    <a routerLink="/connexion">
-      <button type="button" class="btn btn-dark">Connexion</button>
-    </a>
-    <!-- test icon user -->
-    <!-- 
-  <button class="btn"><i class="fa fa-home"></i></button>
 
-    <a href="#">
-      <span class="glyphicon glyphicon-user"></span>
-    </a> -->
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6" id="headerMenuDiv">
+      <!-- "how it works" button + access to explanation page -->
+      &nbsp;
+      <a routerLink="/explanation">
+        <button type="button" class="btn btn-dark">Comment ça marche</button>
+      </a>
+
+      <!-- "all projects" button + access to all projects page -->
+      &nbsp;
+      <a routerLink="/allprojects">
+        <button type="button" class="btn btn-dark">Tous les projets</button>
+      </a>
+
+      <!-- "create project" button + access to create project page -->
+      &nbsp;
+      <a routerLink="/createproject">
+        <button type="button" class="btn btn-dark">Proposer un projet</button>
+      </a>
+
+      <!-- "contact" button + access to contact page -->
+      &nbsp;
+      <a routerLink="/contact">
+        <button type="button" class="btn btn-dark">Contact</button>
+      </a>
+    </div>
+    <div class="col-md-3">
+    </div>
   </div>
-  <div class="headerMenu">
-    <!-- "how it works" button + access to explanation page -->
-    &nbsp;&nbsp;
-    <a routerLink="/explanation">
-      <button type="button" class="btn btn-dark">Comment ça marche</button>
-    </a>
-
-    <!-- "all projects" button + access to all projects page -->
-    &nbsp;&nbsp;
-    <a routerLink="/allprojects">
-      <button type="button" class="btn btn-dark">Tous les projets</button>
-    </a>
-
-    <!-- "create project" button + access to create project page -->
-    &nbsp;&nbsp;
-    <a routerLink="/createproject">
-      <button type="button" class="btn btn-dark">Proposer un projet</button>
-    </a>
-
-    <!-- "contact" button + access to contact page -->
-    &nbsp;&nbsp;
-    <a routerLink="/contact">
-      <button type="button" class="btn btn-dark">Contact</button>
-    </a>
-
-    
-  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>  
 </div>
-
-<!-- router outlet permit to manage components by url -->
-<router-outlet></router-outlet>
