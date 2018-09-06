@@ -2,7 +2,13 @@
 
 :root {
     --black: rgb(0,0,0);
+    --dark-grey: rgb(51,51,51);
     --grey: rgb(95,104,108);
+    --menu-grey: rgb(204,204,204);
+    --light-grey: rgb(233,248,249);
+    --white: rgb(255,255,255);
+    --whiteAlpha: rgba(255, 255, 255, 0.92);
+
     --dark-blue: rgb(3,109,184);
     --blue: rgb(0,178,241);
     --light-blue : rgb(198,216,241);
@@ -10,8 +16,6 @@
     --magenta: rgb(224,5,140);
     --orange: rgb(255,167,0);
     --yellow: rgb(255,240,0);
-    --light-grey: rgb(233,248,249);
-    --white: rgb(255,255,255);
  }
 
 .colorWhite {
@@ -121,8 +125,8 @@
  }
 
  h2 {
-    color: var(--grey) !important;
-    background-color: var(--white) !important;
+    color: var(--dark-grey) !important;
+    
     font-size: 135% !important;
     font-variant: small-caps !important;
     padding: 3% !important;
@@ -137,8 +141,7 @@
  }
 
  p,ul {
-    color: var(--grey);
-    background-color: var(--white);
+    color: var(--dark-grey);
     font-size: 97%;
  }
 p  {
@@ -151,7 +154,7 @@ p  {
 }
  
  footer {
-    color: var(--grey);
+    color: var(--dark-grey);
     background-color: var(--white);
     font-size: 112%;
     text-align: center;
@@ -162,7 +165,7 @@ p  {
  .underfooter {
     color: var(--white);
     background-color: var(--grey);
-    font-size: 80%;
+    font-size: 100%;
     width:50%;
     margin-left: auto;
     margin-right: auto;
@@ -178,32 +181,69 @@ p  {
     
  }
 
- 
- /*Bouton connecter
- défaut : grey on yellow
- mouse on: white on black*/
- 
- /*bouton chevron carroussel
- défaut : yellow on black
- mouse on : yellow on magenta*/
- 
- /*login bouton cadenas*/
+ .buttonMenu {
+     background-color: var(--black);
+     color:var(--menu-grey);
+     border-color: var(--yellow);
+     border-style: solid;
+     border-width: 2px;
+     vertical-align: middle;
+     line-height: 2.5em;
+     font-variant: small-caps;
+
+ }
+ .buttonMenu:hover,
+ .buttonMenu:focus,
+ .buttonMenu:active {
+    background-color: var(--magenta);
+    color: var(--white);
+}
  
 .writings {
-    background-color:var(--white);
+    // background-color:var(--white);
+    background-color:var(--whiteAlpha);
     width:50%;
     margin-left: auto;
     margin-right: auto;
     position:relative;
     top: 30%;
-    padding-bottom: 2%;
+    padding-bottom: 2%; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
 }
 
-.formLayout {
+
+.formTable, td, tr {
     padding-left: 3%;
     padding-right: 3%;
-    width: 50%;
+    
+    // border: 1px solid black;
 }
+
+em {
+    color:var(--magenta);
+}
+
+
+
+.accountCreationRules {
+    color: var(--grey);
+    margin-left: 3em;
+    // display: table-cell;
+    // vertical-align: top;    
+}
+
+.form-inline {
+    padding-left: 3%;
+    padding-right: 3%;
+    
+}
+
+.form-inline label {
+    justify-content: left !important;
+    margin-bottom: 1em !important;
+    margin-top: 1em !important;
+  }
+
 
 .btn-dark {
     background-color: var(--black) !important;
@@ -218,7 +258,7 @@ p  {
     // background:linear-gradient(rgba(62, 62, 62, 0.7), rgba(255,255,255,0.3) 50%);    
     color:black;
     background-color:white;
-    background-image:url("../assets/img/Background-img.png");
+    background-image:url("../assets/img/Background-img.4.png");
     background-repeat:no-repeat;
     background-size: 100%;
     // max-width: 100%;
@@ -228,27 +268,48 @@ p  {
     }
 
 
-#investi-en-bretagne-logo{
-    // define image size
-    width: 20%;
-    height: auto;
-    
+
+
+.investi-en-bretagne-logo {
+    width: 10em;
+    height: 10em;
+    margin-left: auto;
+    margin-right: auto;
+    background: url("../assets/img/logo.IEB.jaunesurbleu.png") no-repeat;
+    background-size: 100%;
+    }
+     
+.investi-en-bretagne-logo:hover,
+.investi-en-bretagne-logo:focus,
+.investi-en-bretagne-logo:active {
+    background: url("../assets/img/logo.IEB.bleusurjaune.png") no-repeat;
+    background-size: 100%;
 }
 
+
+.investi-en-bretagne-logo-onBlack {
+    width: 15.5em;
+    height: 15.5em;
+    position: absolute;
+    top:0px;
+    // margin-left: 13%;
+    // float: left;
+    background: url("../assets/img/logo.IEB.jaunesurbleu.onBlack.1.png") no-repeat;
+    background-size: 100%;
+    }
+     
+.investi-en-bretagne-logo-onBlack:hover,
+.investi-en-bretagne-logo-onBlack:focus,
+.investi-en-bretagne-logo-onBlack:active {
+    background: url("../assets/img/logo.IEB.bleusurjaune.onBlack.1.png") no-repeat;
+    background-size: 100%;
+}
 
 
 ////////////////////////////////////////////////////////////
 //Header
 ////////////////////////////////////////////////////////////
-.headerLogo {
-    width: 80%;
-    height: auto;
-    position: absolute;
-    top:0px;
-    // margin-left: 13%;
-    // float: left;
 
-}
 #headerConnect {
     float: right;
 
@@ -259,10 +320,20 @@ p  {
 #headerConnectDiv{
     background-color: var(--magenta);
     display: flex;
+    margin-bottom: 0.5%;
+    text-align: right !important;
 }
-#headerMenuDiv {
-    background-color: var(--black);
-    display: flex;
+
+.floatLeft {
+    float: left;
+}
+
+.align-right {
+    text-align: right !important;
+}
+.headerMenuDiv {
+    text-align: right;
+    padding: 0px !important;
 }
 .headerBackgroundImg {
     background-image: url("../assets/img/header-img.200.png");
@@ -272,8 +343,4 @@ p  {
 
 #headerSize {
     min-height: 50px;
-}
-
-app-page-header {
-    
 }

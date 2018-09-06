@@ -1,45 +1,127 @@
 <div class="writings">
 
-    <h1>Authentification</h1>
-    <h2>Accéder à votre compte</h2>
 
 
-    <form class="formLayout">
-        <input class="form-control mr-sm-2" type="text" placeholder="identifiant" name="formLogin1" size="50">
-        <br>
-        <input class="form-control mr-sm-2" type="text" placeholder="mot de passe" name="formPassword1" size="50">
-        <button type="submit" class="btn btn-success glyphicon glyphicon-circle-arrow-right gi-2x"></button>
-    </form>
-
-    <div class="formLayout">
-        <button class="btn btn-success" *ngIf="!authStatus" (click)="onSignIn()">Se connecter</button>
-        <button class="btn btn-danger" *ngIf="authStatus" (click)="onSignOut()">Se déconnecter</button>
+        <h1>Authentification</h1>
+        <h2>Accéder à votre compte</h2>
+    
+        
+    
+        <form class="form-inline">
+            <table class="formTable">
+                <tr>
+                    <td>
+                        <input class="form-control mr-sm-2" type="text" placeholder="identifiant" name="formLogin1" size="50">
+                        
+                    </td>
+                    <td>
+    
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="form-control mr-sm-2" type="text" placeholder="mot de passe" name="formPassword1" size="50">
+                        
+                    </td>
+                    <td>
+    
+                    </td>
+                </tr>
+                <tr>
+                    <button type="submit" class="btn btn-success glyphicon glyphicon-circle-arrow-right gi-2x"></button>
+                </tr>
+            </table>
+            
+            
+        </form>
+    
+        <div class="form-inline">
+            <button class="btn btn-success" *ngIf="!authStatus" (click)="onSignIn()">Se connecter</button>
+            <button class="btn btn-danger" *ngIf="authStatus" (click)="onSignOut()">Se déconnecter</button>
+        </div>
+    
+        <h2>Créer un compte</h2>
+        <form class="form-inline">
+            <table class="formTable">
+                <tr>
+                    <label for="formLogin2">Identifiant</label>
+                    
+                </tr>
+                <tr>
+                    <td>
+                        <input class="form-control mr-sm-2" type="text" placeholder="choisissez un identifiant" name="formLogin2" size="50">                    &nbsp;&nbsp;&nbsp;
+                        
+                    </td>
+                    <td>
+                        <div class="accountCreationRules">min. cinq caractères</div>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <label for="formPassword2">Mot de passe</label>
+                    
+                </tr>
+                <tr>
+                    <td>
+                        <input class="form-control mr-sm-2" type="text" placeholder="choisissez un mot de passe" name="formPassword2" size="50">
+                        
+                    </td>
+                    <td>
+                        <div class="accountCreationRules">min. cinq caractères</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="form-control mr-sm-2" type="text" placeholder="confirmez votre mot de passe" name="formPassword3" size="50">
+                        
+                    </td>
+                    <td>
+    
+                    </td>
+                </tr>
+                <tr>
+                    <label for="formEmail2">Adresse électronique</label>
+                    
+                </tr>
+                <tr>
+                    <td>
+                        <input class="form-control mr-sm-2" type="text" placeholder="saisissez votre adresse électronique" name="formEmail2" size="50">
+                        
+                    </td>
+                    <td>
+    
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="form-control mr-sm-2" type="text" placeholder="confirmez votre adresse électronique" name="formEmail3" size="50">
+                        
+                    </td>
+                    <td>
+    
+                    </td>
+                </tr>
+                <tr>
+                    <label for="formBirthDate">Date de naissance </label>
+                    
+                </tr>
+                <tr>
+                    <td>
+                        <input class="form-control mr-sm-2" type="date" placeholder="date de naissance" name="formBirthDate" size="50">
+                        
+                    </td>
+                    <td>
+    
+                    </td>
+                </tr>
+                <tr>
+                    <button type="submit" class="btn btn-success glyphicon glyphicon-circle-arrow-right gi-2x"></button>
+                    
+                </tr>
+            </table>
+            
+            
+        </form>
+    
+    
     </div>
-
-    <h2>Créer un compte</h2>
-    <form class="formLayout">
-        <label for="formLogin2">Identifiant</label>
-        <input class="form-control mr-sm-2" type="text" placeholder="choisissez un identifiant" name="formLogin2" size="50">
-
-        <br>
-        <label for="formPassword2">Mot de passe</label>
-        <input class="form-control mr-sm-2" type="text" placeholder="choisissez un mot de passe" name="formPassword2" size="50">
-        <br>
-        <input class="form-control mr-sm-2" type="text" placeholder="répétez votre mot de passe" name="formPassword3" size="50">
-        <br>
-
-        <label for="formEmail2">Adresse électronique</label>
-        <input class="form-control mr-sm-2" type="text" placeholder="entrez votre adresse électronique" name="formEmail2" size="50">
-        <br>
-        <input class="form-control mr-sm-2" type="text" placeholder="confirmez votre adresse électronique" name="formEmail3" size="50">
-
-        <br>
-        <label for="formBirthDate">Date de naissance </label>
-        <input class="form-control mr-sm-2" type="date" placeholder="date de naissance" name="formBirthDate" size="50">
-
-        <br>
-        <button type="submit" class="btn btn-success glyphicon glyphicon-circle-arrow-right gi-2x"></button>
-    </form>
-
-
-</div>
