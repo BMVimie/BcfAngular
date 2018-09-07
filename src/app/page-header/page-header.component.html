@@ -12,10 +12,17 @@
     <div class="col-md-3">
     </div>
     <div class="col-md-3" id="headerConnectDiv">
-      
+
+      <!-- connexion/account icons -->
+      <!-- redirection to connexion page if no authentification-->
       <a routerLink="/connexion" class="align-right">
-        <span class="glyphicon glyphicon-log-in gi-2x colorWhite"></span>
+        <span class="glyphicon glyphicon-log-in gi-2x colorWhite" *ngIf="!authStatus"></span>
       </a>
+      <!-- redirection to account page if authentification OK-->
+      <a routerLink="/account" class="align-right">
+        <span class="glyphicon glyphicon-user gi-2x colorWhite" *ngIf="!authStatus"></span>
+      </a>
+
     </div>
     <div class="col-md-3">
     </div>
@@ -28,25 +35,25 @@
     </div>
     <div class="col-md-6 headerMenuDiv">
       <!-- "how it works" button + access to explanation page -->
-      
+
       <a routerLink="/explanation">
         <button type="button" class="buttonMenu">Comment ça marche</button>
       </a>
 
       <!-- "all projects" button + access to all projects page -->
-      
+
       <a routerLink="/allprojects">
         <button type="button" class="buttonMenu">Tous les projets</button>
       </a>
 
       <!-- "create project" button + access to create project page -->
-      
+
       <a routerLink="/createproject">
         <button type="button" class="buttonMenu">Proposer un projet</button>
       </a>
 
       <!-- "contact" button + access to contact page -->
-      
+
       <a routerLink="/contact">
         <button type="button" class="buttonMenu">Contact</button>
       </a>

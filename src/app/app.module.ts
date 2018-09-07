@@ -1,13 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-// import routes
-import { Routes, RouterModule} from '@angular/router'
 import {FormsModule} from '@angular/forms';
+
+// routes
+import { RouterModule} from '@angular/router'
 
 // services
 import {AuthService} from './services/auth.service'
 import {AuthGuard} from './services/auth-guard.service'
+import { HttpService } from './services/http.service';
+
+// HTTP
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
@@ -39,6 +43,7 @@ const appRoutes=[
   { path: 'contact' , component: ContactPageComponent },
   { path: 'connexion' , component: ConnexionPageComponent },
   { path: 'legalnotice' , component: LegalNoticePageComponent },
+  { path: 'account', component: AccountPageComponent },
   { path: '' , component: WelcomePageComponent }, // path :'' define welcome page
   { path: '**' , component: WelcomePageComponent } // if weird url '**' // put it everytime to end of the list (to not use iti first)
 ];
@@ -46,6 +51,7 @@ const appRoutes=[
 
 @NgModule({
   declarations: [
+    // all components
     AppComponent,
     PageHeaderComponent,
     PageFooterComponent,
@@ -65,12 +71,14 @@ const appRoutes=[
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes), // add routes in imports
-    FormsModule // add forms module in imports
+    FormsModule, // add forms module in imports
+    HttpClientModule // for HTTP request
   ],
   providers: [
      // services imported
-    AuthService,
-    AuthGuard
+    AuthService, // authentification redirection
+    AuthGuard, // authentification redirection
+    HttpService // for HTTP request
   ],
   bootstrap: [AppComponent]
 })

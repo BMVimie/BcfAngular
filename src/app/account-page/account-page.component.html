@@ -1,3 +1,10 @@
-<p>
-  account-page works!
-</p>
+<!-- loop to get address informations on table-->
+<table class="table table-striped">
+  <tr>
+    <td colspan="3" *ngFor="let addressInfos of userAddress">
+      <h2>Adresse de l'utilisateur :</h2>
+     Nom de la rue : {{ addressInfos.addressStreet }},
+     Pays : {{ addressInfos.addressCountry }}
+    </td>
+  </tr>
+</table>
