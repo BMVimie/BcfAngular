@@ -1,4 +1,11 @@
+////////////////////
+//TO SORT OUT
+////////////////////
 
+
+////////////////////
+//STANDARD COLORS
+////////////////////
 
 :root {
     --black: rgb(0,0,0);
@@ -18,15 +25,22 @@
     --yellow: rgb(255,240,0);
  }
 
-.colorWhite {
-    color: var(--white);
-}
+////////////////////
+//GLYPH
+////////////////////
 
 .gi-2x{font-size: 2em;}
 .gi-3x{font-size: 3em;}
 .gi-4x{font-size: 4em;}
 .gi-5x{font-size: 5em;}
- 
+
+.glyphColor {
+    color: var(--white);
+}
+
+////////////////////
+//BASIC BALISE : title,subtitle,body,h1,h2,h3,p,a,ul,li,em,writings
+//////////////////// 
  .title-white {
     color: var(--white);
     background-color: var(--black);
@@ -42,80 +56,19 @@
     padding: 3%;
     font-weight: bold;
  }
- 
- .header-menu-other-defaut {
-    color: var(--grey);
-    background-color: var(--black);
-    font-size: 150%;
- }
 
- .header-menu-other-mouseOn {
-    color: var(--white);
-    background-color: var(--black);
-    font-size: 150%;
- }
- 
- .header-menu-current {
-    color: var(--yellow);
-    background-color: var(--black);
-    font-size: 150%;
- }
-
- .side-menu-other {
-    color: var(--light-grey);
-    background-color: rgb(89, 90, 47);
-    font-size: 112%;
- }
- 
- .side-menu-current {
-    color: var(--grey);
-    background-color: var(--yellow);
-    font-size: 112%;
- }
- 
- .side-menu-header {
-    color: var(--white);
-    background-color: var(--black);
-    font-size: 150%;
- }
- 
- .login-defaut {
-    color: var(--white);
-    background-color: var(--magenta);
-    font-size: 150%;
- }
-
- .login-mouseOn {
-    color: var(--yellow);
-    background-color: var(--magenta);
-    font-size: 150%;
- }
- 
- .route-first-element {
-    color: var(--white);
-    background-color: var(--black);
-    font-size: 90%;
- }
-
- .route-last-element {
-    color: var(--yellow);
-    background-color: var(--black);
-    font-size: 90%;
- }
- 
- .slogan-first-element {
-    color: var(--white);
-    background-color: var(--black);
-    font-size: 100%;
- }
-
- .slogan-last-element {
-    color: var(--yellow);
-    background-color: var(--black);
-    font-size: 100%;
-    font-variant: small-caps;
-    font-weight: bold;
- }
+ body {
+    // background:linear-gradient(rgba(62, 62, 62, 0.7), rgba(255,255,255,0.3) 50%);    
+    color:black;
+    background-color:white;
+    background-image:url("../assets/img/Background-img.4.png");
+    background-repeat:no-repeat;
+    background-size: 100%;
+    // max-width: 100%;
+    // height: auto;
+    // margin-left: auto;
+    // margin-right: auto;
+    }
 
  h1 {
     color: var(--white) !important;
@@ -142,61 +95,27 @@
 
  p,ul {
     color: var(--dark-grey);
-    font-size: 97%;
+    font-size: 112%;
  }
+
 p  {
     padding: 1% 3% 0% 3%;
     margin-bottom: 0%;
 }
 
-.list-padding {
+
+a.disabledEffects {
+    text-decoration: none !important;
+}
+a:enabled, a:active, a:hover, a:disabled, a:focus {
+    color: var(--white) !important;
+}
+
+li {
     padding: 1% 10% 0% 3%;
 }
- 
- footer {
-    color: var(--dark-grey);
-    background-color: var(--white);
-    font-size: 112%;
-    text-align: center;
-    padding-top: 3%;
-    padding-bottom: 2%;
- }
-
- .underfooter {
-    color: var(--white);
-    background-color: var(--grey);
-    font-size: 100%;
-    width:50%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1%;
-    text-align: center;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    
- }
-
- .underfooterColor {
-    color: var(--white);
-    
- }
-
- .buttonMenu {
-     background-color: var(--black);
-     color:var(--menu-grey);
-     border-color: var(--yellow);
-     border-style: solid;
-     border-width: 2px;
-     vertical-align: middle;
-     line-height: 2.5em;
-     font-variant: small-caps;
-
- }
- .buttonMenu:hover,
- .buttonMenu:focus,
- .buttonMenu:active {
-    background-color: var(--magenta);
-    color: var(--white);
+em {
+    color:var(--magenta);
 }
  
 .writings {
@@ -211,19 +130,111 @@ p  {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
 }
 
+////////////////////
+//BUTTON IEB
+////////////////////
 
-.formTable, td, tr {
-    padding-left: 3%;
-    padding-right: 3%;
-    
-    // border: 1px solid black;
+.btn-ieb {
+    color: var(--white);
+    background-color: var(--orange);
+    border-color: var(--magenta);
+  }
+  
+  .btn-ieb:hover {
+    color: var(--white);
+    background-color: var(--magenta);
+    border-color: var(--white);
+  }
+  
+  .btn-ieb:focus, .btn-ieb.focus {
+    -webkit-box-shadow: 0 0 0 2px var(--whiteAlpha);
+            box-shadow: 0 0 0 2px var(--whiteAlpha);
+  }
+  
+  .btn-ieb.disabled, .btn-ieb:disabled {
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+  }
+  
+  .btn-ieb:active, .btn-ieb.active,
+  .show > .btn-ieb.dropdown-toggle {
+    color: #fff;
+    background-color: #449d44;
+    background-image: none;
+    border-color: #419641;
+  }
+
+///////////////////
+//BUTTON DARK
+///////////////////
+
+.btn-dark {
+    background-color: var(--black) !important;
+    color: var(--white) !important;
+
 }
 
-em {
-    color:var(--magenta);
+.btn:active {
+    color: var(--yellow) !important;
 }
 
+///////////////////
+//BUTTON MENU
+///////////////////
 
+.buttonMenu {
+    background-color: var(--black);
+    color:var(--menu-grey);
+    border-color: var(--yellow);
+    border-style: solid;
+    border-width: 2px;
+    vertical-align: middle;
+    line-height: 2.5em;
+    font-variant: small-caps;
+
+}
+
+.buttonMenu:hover,
+.buttonMenu:focus,
+.buttonMenu:active {
+   background-color: var(--magenta);
+   color: var(--white);
+}
+
+///////////////////
+//FOOTER
+///////////////////
+ 
+footer {
+    color: var(--dark-grey);
+    background-color: var(--white);
+    font-size: 112%;
+    text-align: center;
+    padding-top: 3%;
+    padding-bottom: 2%;
+ }
+
+ .underfooter {
+    color: var(--white) !important;
+    background-color: var(--grey);
+    font-size: 100%;
+    width:50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1%;
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+ }
+
+
+ .underfooterColor {
+    color: var(--white) !important;
+ }
+
+///////////////////
+//FORMULAR
+///////////////////
 
 .accountCreationRules {
     color: var(--grey);
@@ -242,33 +253,34 @@ em {
     justify-content: left !important;
     margin-bottom: 1em !important;
     margin-top: 1em !important;
-  }
-
-
-.btn-dark {
-    background-color: var(--black) !important;
-    color: var(--white) !important;
-
-}
-.btn:active {
-    color: var(--yellow) !important;
 }
 
- body {
-    // background:linear-gradient(rgba(62, 62, 62, 0.7), rgba(255,255,255,0.3) 50%);    
-    color:black;
-    background-color:white;
-    background-image:url("../assets/img/Background-img.4.png");
-    background-repeat:no-repeat;
-    background-size: 100%;
-    // max-width: 100%;
-    // height: auto;
-    // margin-left: auto;
-    // margin-right: auto;
-    }
+.formPadding {
+    padding-left: 3%;
+    padding-right: 3%;
+}
 
+.formTable, td, tr {
+    padding-left: 3%;
+    padding-right: 3%;
+    
+    // border: 1px solid black;
+}
 
+.textAreaDisplay {
+    display: block !important;
+    width: 100% !important;
+}
 
+.labelCheckbox {
+    margin-left: 1em;
+    font-weight: normal;
+    color: var(--dark-grey);
+}
+
+///////////////////
+//LOGOS
+///////////////////
 
 .investi-en-bretagne-logo {
     width: 10em;
@@ -285,7 +297,6 @@ em {
     background: url("../assets/img/logo.IEB.bleusurjaune.png") no-repeat;
     background-size: 100%;
 }
-
 
 .investi-en-bretagne-logo-onBlack {
     width: 15.5em;
@@ -305,18 +316,19 @@ em {
     background-size: 100%;
 }
 
-
-////////////////////////////////////////////////////////////
+///////////////////
 //Header
-////////////////////////////////////////////////////////////
+///////////////////
 
 #headerConnect {
     float: right;
 
 }
+
 #headerMenu {
     float: right;
 }
+
 #headerConnectDiv{
     background-color: var(--magenta);
     display: flex;
@@ -331,10 +343,12 @@ em {
 .align-right {
     text-align: right !important;
 }
+
 .headerMenuDiv {
     text-align: right;
     padding: 0px !important;
 }
+
 .headerBackgroundImg {
     background-image: url("../assets/img/header-img.200.png");
     background-size: 100%;
@@ -344,3 +358,5 @@ em {
 #headerSize {
     min-height: 50px;
 }
+
+///////////////////
