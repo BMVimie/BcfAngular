@@ -27,18 +27,13 @@
                 </td>
             </tr>
             <tr>
-                <button type="submit" class="btn btn-success glyphicon glyphicon-circle-arrow-right gi-2x"></button>
+                <!-- button to send login form -->
+                <button type="submit" (click)="onSignIn()" class="btn btn-success glyphicon glyphicon-circle-arrow-right gi-2x"></button>
             </tr>
         </table>
 
 
     </form>
-
-    <div class="form-inline">
-        <!-- sign in and out buttons -->
-        <button class="btn btn-success" *ngIf="!authStatus" (click)="onSignIn()">Se connecter</button>
-        <button class="btn btn-danger" *ngIf="authStatus" (click)="onSignOut()">Se déconnecter</button>
-    </div>
 
     <h2>Créer un compte</h2>
     <form class="form-inline">

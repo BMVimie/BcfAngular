@@ -1,34 +1,38 @@
-// HTTP imports
+// import HTTP functions
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-// to available class to Injector for creation
+// import to available class to Injector for creation
 import { Injectable } from '@angular/core';
 @Injectable()
 
 export class HttpService {
 
-    constructor(
-        private httpClient: HttpClient
-    ) { }
-
     // define server URL for all requests
     serverUrl: String = "http://localhost:8080/";
 
-    //////////////
-    // GET request
+    constructor(
+        // add HTTP client to this component
+        private httpClient: HttpClient
+    ) { }
+
+    // GET request asynchronous
     async get(requestMapping: string): Promise<any> {
         // define headers to allow access
         let httpHeaders = new HttpHeaders()
             .set("Access-Control-Allow-Origin", "*");
-        // define complete resquest URL
-        let requestUrl = this.serverUrl + requestMapping;
-        // request HTTP
+        // declare request response in await function (for asynchronous)
         let requestResponse = await this.httpClient
-            .get<any>(requestUrl, {
-                headers: httpHeaders, // use headers define above
-                responseType: 'json', // define response format in JSON
+            // GET request HTTP with complete URL
+            .get<any>(this.serverUrl + requestMapping, {
+                // use headers defined above
+                headers: httpHeaders,
+                // define response format in JSON
+                responseType: 'json',
+                // enable to use credentials/certificates
                 withCredentials: false
+            // transform to promise to be able asynchronous
             }).toPromise()
+        // return request response
         return requestResponse;
     }
 }
