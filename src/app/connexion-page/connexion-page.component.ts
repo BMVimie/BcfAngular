@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import {ViewEncapsulation} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ViewEncapsulation } from '@angular/core';
 
-// service
+// import authentification service
 import { AuthService } from '../services/auth.service';
+
+// import router and CanActivate function (for redirection)
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-connexion-page',
@@ -10,34 +13,40 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['../app.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
+
 export class ConnexionPageComponent implements OnInit {
 
-  // define attribute to get authentification status ()
-  authStatus: boolean;
+  // define attribute to get authentification status in this component
+  @Input() authStatus: boolean;
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    // add authentification service to this component
+    private authService: AuthService
+    // add router link to this service
+    , private router: Router
+  ) { }
 
+  // at initialization of this component
   ngOnInit() {
     // get authentification status when connexion page called
     this.authStatus = this.authService.isAuth;
   }
 
-  // authentificate
+  // call authentificate method in authentification service
   onSignIn() {
-    this.authService.signIn().then(
-      () => {
-        console.log('Sign in successful !');
-        this.authStatus = this.authService.isAuth;
-      }
-    );
+    // execute sign in from authentification service
+    this.authService.signIn();
+    // update this component authentification status to true (from authentification service)
+    this.authStatus = this.authService.isAuth;
+    // redirection to account page
+    this.router.navigate(['/account']);
   }
 
-  // disconnect
+  // call disconnect method in authentification service
   onSignOut() {
+    // execute sign out from authentification service
     this.authService.signOut();
-    console.log('Sign out successful !');
+    // update this component authentification status to false (from authentification service)
     this.authStatus = this.authService.isAuth;
   }
-
-
 }

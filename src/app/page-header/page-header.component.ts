@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {ViewEncapsulation} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ViewEncapsulation } from '@angular/core';
 
-// service
+// import authentification service
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -10,16 +10,16 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['../app.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
+
 export class PageHeaderComponent implements OnInit {
 
-  // define attribute to get authentification status ()
-  authStatus: boolean;
+  constructor(
+    // add authentification service to this component (to update connexion/account icons)
+    private authService: AuthService
+  ) { }
 
-  constructor(private authService: AuthService) { }
-
+  // at initialization of this component
   ngOnInit() {
-    // get authentification status when page header called
-    this.authStatus = this.authService.isAuth;
   }
 
 }

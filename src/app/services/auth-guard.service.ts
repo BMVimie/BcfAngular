@@ -1,25 +1,32 @@
-import { CanActivate, Router} from '@angular/router';
+// import router and CanActivate function (for redirection)
+import { CanActivate, Router } from '@angular/router';
 
-//services
+// import authentification service
 import { AuthService } from './auth.service';
 
-// to available class to Injector for creation
+// import to available class to Injector for creation
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
 
   constructor(
+    // add authentification service to this service
     private authService: AuthService
-    ,private router: Router
+    // add router link to this service
+    , private router: Router
   ) { }
 
   // manage if user not connected => redirection to connexion
-  canActivate(): boolean { // return boolean
-    if (!this.authService.isAuth) { // if user not authentified
-      this.router.navigate(['/connexion']); // redirection to connexion page
+  canActivate(): boolean {
+     // if user not authentified
+    if (!this.authService.isAuth) {
+      // redirection to connexion page
+      this.router.navigate(['/connexion']);
+      // return not possible to activate component
       return false;
     }
+    // return possible to activate component
     return true;
   }
 }

@@ -16,11 +16,11 @@
       <!-- connexion/account icons -->
       <!-- redirection to connexion page if no authentification-->
       <a routerLink="/connexion" class="align-right">
-        <span class="glyphicon glyphicon-log-in gi-2x colorWhite" *ngIf="!authStatus"></span>
+        <span class="glyphicon glyphicon-log-in gi-2x colorWhite" *ngIf="!authService.isAuth"></span>
       </a>
       <!-- redirection to account page if authentification OK-->
       <a routerLink="/account" class="align-right">
-        <span class="glyphicon glyphicon-user gi-2x colorWhite" *ngIf="!authStatus"></span>
+        <span class="glyphicon glyphicon-user gi-2x colorWhite" *ngIf="authService.isAuth"></span>
 
       </a>
 
