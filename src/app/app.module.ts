@@ -43,7 +43,7 @@ const appRoutes=[
   { path: 'contact' , component: ContactPageComponent },
   { path: 'connexion' , component: ConnexionPageComponent },
   { path: 'legalnotice' , component: LegalNoticePageComponent },
-  { path: 'account', component: AccountPageComponent },
+  { path: 'account', canActivate: [AuthGuard], component: AccountPageComponent },
   { path: '' , component: WelcomePageComponent }, // path :'' define welcome page
   { path: '**' , component: WelcomePageComponent } // if weird url '**' // put it everytime to end of the list (to not use iti first)
 ];

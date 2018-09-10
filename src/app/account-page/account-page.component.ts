@@ -43,7 +43,7 @@ export class AccountPageComponent implements OnInit {
     this.userAddress = await this.httpService.get("address");
   }
 
-  // call disconnect method
+  // call disconnect method in authentification service
   onSignOut() {
     // execute sign out from authentification service
     this.authService.signOut();

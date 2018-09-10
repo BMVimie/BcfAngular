@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
-import { Router } from '@angular/router';
-import {ViewEncapsulation} from '@angular/core';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-create-project-page',
@@ -11,10 +9,9 @@ import {ViewEncapsulation} from '@angular/core';
 })
 export class CreateProjectPageComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router)  { }
+  constructor() { }
 
   ngOnInit() {
-    this.router.navigate(['connexion']);
   }
 
 }
