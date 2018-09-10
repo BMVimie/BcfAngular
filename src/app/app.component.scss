@@ -73,14 +73,14 @@
  h1 {
     color: var(--white) !important;
     background-color: var(--magenta) !important;
-    font-size: 250% !important;
+    font-size: 250%;
     padding: 3% !important;
  }
 
  h2 {
     color: var(--dark-grey) !important;
     
-    font-size: 135% !important;
+    font-size: 135%;
     font-variant: small-caps !important;
     padding: 3% !important;
  }
@@ -88,7 +88,7 @@
  h3 {
     color: var(--magenta) !important;
     background-color: var(--white) !important;
-    font-size: 112% !important;
+    font-size: 112%;
     font-variant: small-caps !important;
     padding: 3% !important;
  }
@@ -104,12 +104,12 @@ p  {
 }
 
 
-a.disabledEffects {
-    text-decoration: none !important;
-}
-a:enabled, a:active, a:hover, a:disabled, a:focus {
-    color: var(--white) !important;
-}
+// a.disabledEffects {
+//     text-decoration: none !important;
+// }
+// a:enabled, a:active, a:hover, a:disabled, a:focus {
+//     color: var(--white) !important;
+// }
 
 li {
     padding: 1% 10% 0% 3%;
@@ -124,10 +124,35 @@ em {
     width:50%;
     margin-left: auto;
     margin-right: auto;
-    position:relative;
-    top: 30%;
+    // position:relative;
+    // top: 30%;
     padding-bottom: 2%; 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
+}
+
+@media screen and (max-width:800px) {
+    .writings, .underfooter {
+    width: 100%;
+    }
+    h1 {
+        font-size: 1em;
+    }
+    h2 {
+        font-size: 130%;
+    }
+    h3 {
+        font-size: 112%;
+    }
+}
+@media screen and (min-width:801px) and (max-width:1000px) {
+    .writings {
+    width: 80%;
+    }
+}
+@media screen and (min-width:1001px) and  (max-width:1200px) {
+    .writings {
+    width: 60%;
+    }
 }
 
 ////////////////////
@@ -218,13 +243,11 @@ footer {
     color: var(--white) !important;
     background-color: var(--grey);
     font-size: 100%;
-    width:50%;
-    margin-left: auto;
-    margin-right: auto;
     padding: 1%;
     text-align: center;
     padding-top: 2%;
     padding-bottom: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
  }
 
 
@@ -299,12 +322,10 @@ footer {
 }
 
 .investi-en-bretagne-logo-onBlack {
-    width: 15.5em;
-    height: 15.5em;
+    width: 16.7vw;
+    height: 16.7vw;
     position: absolute;
     top:0px;
-    // margin-left: 13%;
-    // float: left;
     background: url("../assets/img/logo.IEB.jaunesurbleu.onBlack.1.png") no-repeat;
     background-size: 100%;
     }
@@ -331,7 +352,7 @@ footer {
 
 #headerConnectDiv{
     background-color: var(--magenta);
-    display: flex;
+    // display: flex;
     margin-bottom: 0.5%;
     text-align: right !important;
 }
