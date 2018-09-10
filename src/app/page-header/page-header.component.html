@@ -16,11 +16,12 @@
       <!-- connexion/account icons -->
       <!-- redirection to connexion page if no authentification-->
       <a routerLink="/connexion" class="align-right">
-        <span class="glyphicon glyphicon-log-in gi-2x colorWhite" *ngIf="!authStatus"></span>
+        <span class="glyphicon glyphicon-log-in gi-2x glyphColor align-right" *ngIf="!authStatus"></span>
       </a>
+      &nbsp;&nbsp;
       <!-- redirection to account page if authentification OK-->
       <a routerLink="/account" class="align-right">
-        <span class="glyphicon glyphicon-user gi-2x colorWhite" *ngIf="!authStatus"></span>
+        <span class="glyphicon glyphicon-user gi-2x glyphColor align-right" *ngIf="!authStatus"></span>
 
       </a>
 
@@ -62,11 +63,4 @@
     <div class="col-md-3">
     </div>
   </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
 </div>
