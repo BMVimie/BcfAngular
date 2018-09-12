@@ -3,10 +3,15 @@
 <!-- loop to get address informations on table-->
 <table class="table table-striped">
   <tr>
-    <td colspan="3" *ngFor="let addressInfos of userAddress">
-      <h2>Adresse de l'utilisateur :</h2>
-     Nom de la rue : {{ addressInfos.addressStreet }},
-     Pays : {{ addressInfos.addressCountry }}
+    <td colspan="3" *ngFor="let infos of userInfos">
+      <h2>Votre profil</h2>
+     Nom : {{ infos.userFamilyName }}
+     <br>
+     Prénom : {{ infos.userFirstName }}
+     <br>
+     Téléphone : {{ infos.userPhoneNumber }}
+     <br>
+     E-mail : {{ infos.userEmail }}
     </td>
   </tr>
 </table>

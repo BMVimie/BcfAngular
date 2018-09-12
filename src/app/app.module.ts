@@ -12,6 +12,8 @@ import { HttpService } from './services/http.service';
 
 // import HTTP client
 import { HttpClientModule } from '@angular/common/http';
+// import Cookie service
+import { CookieService } from 'ngx-cookie-service';
 
 // import components
 import { AppComponent } from './app.component';
@@ -78,6 +80,7 @@ const appRoutes=[
     AuthService, // authentification redirection
     AuthGuard, // authentification redirection
     HttpService, // for HTTP request
+    CookieService // for use cookie
   ],
   bootstrap: [AppComponent]
 })

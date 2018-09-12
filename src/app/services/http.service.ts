@@ -8,10 +8,10 @@ import { Injectable } from '@angular/core';
 export class HttpService {
 
     // define server URL for all requests
-    serverUrl: String = "http://localhost:8080/";
+    serverUrl: String = "http://localhost:1234/";
 
     constructor(
-        // add HTTP client to this component
+        // add HTTP client in this component
         private httpClient: HttpClient
     ) { }
 

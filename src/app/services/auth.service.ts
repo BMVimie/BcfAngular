@@ -2,17 +2,21 @@ import { OnInit, Input } from '@angular/core';
 
 // import to available class to Injector for creation
 import { Injectable } from '@angular/core';
+// import Cookie service
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable()
 export class AuthService implements OnInit {
 
   // define authentification status Cookie name
-  authLocalStorName: string = 'AuthStatus';
+  authCookieName: string = 'AuthStatus';
 
   // define authentification boolean status with authentification local storage
   @Input() isAuth: boolean = this.authStatusToBool();
 
   constructor(
+    // add Cookie service in this component
+    private cookieService: CookieService
   ) { }
 
   // at initialization of this service
@@ -23,25 +27,25 @@ export class AuthService implements OnInit {
   signIn() {
     // define authentification boolean status to true
     this.isAuth = true;
-    // set authentification status local storage to true in string (only string in local storage)
-    localStorage.setItem(this.authLocalStorName, 'true');
+    // set authentification status Cookie to true
+    this.cookieService.set(this.authCookieName, 'true');
   }
 
   // sign out and return false
   signOut() {
-    // define authentification boolean status to true
+    // define authentification boolean status to false
     this.isAuth = false;
-    // set authentification status local storage to false in string (only string in local storage)
-    localStorage.setItem(this.authLocalStorName, 'false');
+    // set authentification status Cookie to false
+    this.cookieService.set(this.authCookieName, 'false');
   }
 
   // return authentification status local storage in boolean
   authStatusToBool(): boolean {
-    // if authentification status local storage is true
-    if (localStorage.getItem(this.authLocalStorName) == 'true') {
+    // if authentification status Cookie is true
+    if (this.cookieService.get(this.authCookieName) == 'true') {
       return true;
     }
-    // if authentification status local storage is false or no authentification status local storage
+    // if authentification status Cookie is false or no authentification status Cookie
     else {
       return false;
     }

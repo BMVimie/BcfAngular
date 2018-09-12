@@ -20,7 +20,7 @@ import { Router } from '@angular/router';
 export class AccountPageComponent implements OnInit {
 
   // define and instantiate user address to get
-  userAddress: any;
+  userInfos: any;
 
   constructor(
     // add HTTP service to this component
@@ -34,13 +34,13 @@ export class AccountPageComponent implements OnInit {
   // at initialization of this component
   ngOnInit() {
     // get user address
-    this.getAddress();
+    this.getUserInfos();
   }
 
   // get user address
-  async getAddress() {
+  async getUserInfos() {
     // get user adersse with HTTP GET request asynchronous
-    this.userAddress = await this.httpService.get("address");
+    this.userInfos = await this.httpService.get("user");
   }
 
   // call disconnect method in authentification service
