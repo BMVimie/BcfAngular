@@ -5,12 +5,13 @@
     <h2>Accéder à votre compte</h2>
 
 
-
-    <form class="form-inline">
+    <!-- connection formulary -->
+    <form (ngSubmit)="onSignIn(b)" #b="ngForm" class="form-inline">
         <table class="formTable">
             <tr>
                 <td>
-                    <input class="form-control mr-sm-2" type="text" placeholder="identifiant" name="formLogin1" size="50">
+                    <input class="form-control mr-sm-2" type="text" ngModel [(ngModel)]="formLogin1" placeholder="identifiant" 
+                    name="formLogin1" size="50">
 
                 </td>
                 <td>
@@ -19,7 +20,8 @@
             </tr>
             <tr>
                 <td>
-                    <input class="form-control mr-sm-2" type="text" placeholder="mot de passe" name="formPassword1" size="50">
+                    <input class="form-control mr-sm-2" type="text" ngModel [(ngModel)]="formPassword1" placeholder="mot de passe"
+                    name="formPassword1" size="50">
 
                 </td>
                 <td>
@@ -28,7 +30,7 @@
             </tr>
             <tr>
                 <!-- button to send login form -->
-                <button type="submit" (click)="onSignIn()" class="btn btn-success glyphicon glyphicon-circle-arrow-right gi-2x"></button>
+                <button type="submit" class="btn btn-success glyphicon glyphicon-circle-arrow-right gi-2x"></button>
             </tr>
         </table>
 

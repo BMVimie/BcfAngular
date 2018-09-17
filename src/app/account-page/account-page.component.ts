@@ -1,9 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
-
 // import HTTP service
 import { HttpService } from '../services/http.service';
-
 // import authentification service
 import { AuthService } from '../services/auth.service';
 

@@ -30,9 +30,47 @@ export class HttpService {
                 responseType: 'json',
                 // enable to use credentials/certificates
                 withCredentials: false
-            // transform to promise to be able asynchronous
-            }).toPromise()
+                // transform to promise to be able asynchronous
+            }).toPromise();
         // return request response
         return requestResponse;
+    }
+
+    // POST request asynchronous
+    async post(requestMapping: string, requestBody: any): Promise<any> {
+        // send POST request
+        await this.httpClient.post(this.serverUrl + requestMapping, requestBody )
+            .subscribe(
+                // if success
+                data => {
+                    console.log("POST Request is successful ", data);
+                },
+                // if failed
+                error => {
+                    console.log("POST request error", error);
+                }
+            );
+    }
+
+    // POST request asynchronous for user
+    async postUserLogin(userName: string, userPassword: string): Promise<any> {
+        // define user login request parameters
+        let requestBody : any  = { 
+            userName: userName
+            , userPassword: userPassword 
+        } ;
+        // send POST asynchronous request for user login
+        await this.post("login", requestBody);
+    }
+
+    // POST request asynchronous for address
+    async postAddress(addressCountry: string, addressCity: string): Promise<any> {
+        // define address request parameters
+        let requestBody : any  = {
+            addressCountry: addressCountry
+            , addressCity: addressCity 
+        } ;
+        // send POST asynchronous request for address
+        await this.post("address", requestBody);
     }
 }

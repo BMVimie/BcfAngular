@@ -71,8 +71,8 @@ const appRoutes=[
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes), // add routes in imports
     FormsModule, // add forms module in imports
+    RouterModule.forRoot(appRoutes), // add routes in imports
     HttpClientModule // for HTTP request
   ],
   providers: [
