@@ -1,17 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 // import router module to build routes
-import { RouterModule} from '@angular/router'
+import { RouterModule } from '@angular/router';
 
 // import our services
-import {AuthService} from './services/auth.service'
-import {AuthGuard} from './services/auth-guard.service'
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth-guard.service';
 import { HttpService } from './services/http.service';
 
 // import HTTP client
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 // import Cookie service
 import { CookieService } from 'ngx-cookie-service';
 
@@ -33,21 +33,21 @@ import { RulesPageComponent } from './rules-page/rules-page.component';
 import { AccountPageComponent } from './account-page/account-page.component';
 
 // define all routes links
-const appRoutes=[
-  { path: 'home' , component: WelcomePageComponent },
-  { path: 'explanation' , component: ExplanationPageComponent },
-  { path: 'privacy' , component: PrivacyPolicyPageComponent },
-  { path: 'advices' , component: AdvicesPageComponent },
-  { path: 'rules' , component: RulesPageComponent },
-  { path: 'allprojects' , component: AllProjectsPageComponent },
-  { path: 'createproject' , canActivate: [AuthGuard], component: CreateProjectPageComponent },
-  { path: 'oneproject' , component: OneProjectPageComponent },
-  { path: 'contact' , component: ContactPageComponent },
-  { path: 'connexion' , component: ConnexionPageComponent },
-  { path: 'legalnotice' , component: LegalNoticePageComponent },
-  { path: 'account', canActivate: [AuthGuard], component: AccountPageComponent },
-  { path: '' , component: WelcomePageComponent }, // path :'' define welcome page
-  { path: '**' , component: WelcomePageComponent } // if weird url '**' // put it everytime to end of the list (to not use iti first)
+const appRoutes = [
+  { path: 'home', component: WelcomePageComponent },
+  { path: 'explanation', component: ExplanationPageComponent },
+  { path: 'privacy', component: PrivacyPolicyPageComponent },
+  { path: 'advices', component: AdvicesPageComponent },
+  { path: 'rules', component: RulesPageComponent },
+  { path: 'allprojects', component: AllProjectsPageComponent },
+  { path: 'createproject', canActivate: [AuthGuard], component: CreateProjectPageComponent },
+  { path: 'oneproject', component: OneProjectPageComponent },
+  { path: 'contact', component: ContactPageComponent },
+  { path: 'connexion', component: ConnexionPageComponent },
+  { path: 'legalnotice', component: LegalNoticePageComponent },
+  { path: 'account', component: AccountPageComponent },
+  { path: '', component: WelcomePageComponent }, // path :'' define welcome page
+  { path: '**', component: WelcomePageComponent } // if weird url '**' // put it everytime to end of the list (to not use iti first)
 ];
 
 @NgModule({
@@ -76,11 +76,12 @@ const appRoutes=[
     HttpClientModule // for HTTP request
   ],
   providers: [
-     // services imported
+    // services imported
     AuthService, // authentification redirection
     AuthGuard, // authentification redirection
     HttpService, // for HTTP request
-    CookieService // for use cookie
+    CookieService, // for use cookie
+    HttpClientXsrfModule // for use csrf token (authentification)
   ],
   bootstrap: [AppComponent]
 })

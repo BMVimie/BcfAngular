@@ -1,5 +1,5 @@
 // import HTTP functions
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 // import to available class to Injector for creation
 import { Injectable } from '@angular/core';
@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class HttpService {
 
     // define server URL for all requests
-    serverUrl: String = "http://localhost:1234/";
+    serverUrl: String = 'http://localhost:1234/';
 
     constructor(
         // add HTTP client in this component
@@ -18,8 +18,7 @@ export class HttpService {
     // GET request asynchronous
     async get(requestMapping: string): Promise<any> {
         // define headers to allow access
-        let httpHeaders = new HttpHeaders()
-            .set("Access-Control-Allow-Origin", "*");
+        let httpHeaders = new HttpHeaders();
         // declare request response in await function (for asynchronous)
         let requestResponse = await this.httpClient
             // GET request HTTP with complete URL
@@ -29,7 +28,7 @@ export class HttpService {
                 // define response format in JSON
                 responseType: 'json',
                 // enable to use credentials/certificates
-                withCredentials: false
+                withCredentials: true
                 // transform to promise to be able asynchronous
             }).toPromise();
         // return request response
@@ -38,39 +37,49 @@ export class HttpService {
 
     // POST request asynchronous
     async post(requestMapping: string, requestBody: any): Promise<any> {
+        // define headers to define content type
+        let httpHeaders = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'});
         // send POST request
-        await this.httpClient.post(this.serverUrl + requestMapping, requestBody )
-            .subscribe(
-                // if success
-                data => {
-                    console.log("POST Request is successful ", data);
-                },
-                // if failed
-                error => {
-                    console.log("POST request error", error);
-                }
-            );
+        console.log("requestBody");
+        console.log(requestBody);
+        console.log(JSON.stringify(requestBody));
+        const body = new URLSearchParams();
+        body.set('username', requestBody.username);
+        body.set('password', requestBody.password);
+        body.set('_csrf', requestBody._csrf);
+        console.log( body.toString())
+
+        let httpResult = this.httpClient.post(this.serverUrl + requestMapping, body.toString(), {
+                // use headers defined above
+                headers: httpHeaders,
+                // define response format in JSON
+                responseType: 'json',
+                // enable to use credentials/certificates
+                withCredentials: true
+            });
+        httpResult.forEach((item)=>{console.log(item)});
     }
 
     // POST request asynchronous for user
-    async postUserLogin(userName: string, userPassword: string): Promise<any> {
+    async postUserLogin(userName: string, userPassword: string, csrf: string): Promise<any> {
         // define user login request parameters
-        let requestBody : any  = { 
-            userName: userName
-            , userPassword: userPassword 
-        } ;
+        let requestBody: any = {
+            username: userName,
+            password: userPassword,
+            _csrf: csrf
+        };
         // send POST asynchronous request for user login
-        await this.post("login", requestBody);
+        await this.post('login', requestBody);
     }
 
     // POST request asynchronous for address
     async postAddress(addressCountry: string, addressCity: string): Promise<any> {
         // define address request parameters
-        let requestBody : any  = {
+        let requestBody: any = {
             addressCountry: addressCountry
-            , addressCity: addressCity 
-        } ;
+            , addressCity: addressCity
+        };
         // send POST asynchronous request for address
-        await this.post("address", requestBody);
+        await this.post('address', requestBody);
     }
 }

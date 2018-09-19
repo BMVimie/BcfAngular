@@ -38,14 +38,14 @@ export class AccountPageComponent implements OnInit {
   // get user address
   async getUserInfos() {
     // get user adersse with HTTP GET request asynchronous
-    this.userInfos = await this.httpService.get("user");
+    this.userInfos = await this.httpService.get('user');
   }
 
   // call disconnect method in authentification service
-  onSignOut() {
+  async onSignOut() {
     // execute sign out from authentification service
-    this.authService.signOut();
+    await this.authService.signOut();
     // redirection to connexion page
-    this.router.navigate(['/connexion']);
+    // this.router.navigate(['/connexion']);
   }
 }
