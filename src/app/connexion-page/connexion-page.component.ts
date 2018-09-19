@@ -1,12 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
-
 // import authentification service
 import { AuthService } from '../services/auth.service';
-
 // import router and CanActivate function (for redirection)
 import { Router } from '@angular/router';
-
 // import to use formulary
 import { NgForm } from '@angular/forms';
 
@@ -21,13 +18,14 @@ export class ConnexionPageComponent implements OnInit {
 
   constructor(
     // add authentification service to this component
-    private authService: AuthService
+    private authService: AuthService,
     // add router link to this service
-    , private router: Router
+    private router: Router
   ) { }
 
   // at initialization of this component
   ngOnInit() {
+    // redirection to account if user already authentified (security if if URL called directly)
     // if user authentified (from authentification service)
     if (this.authService.isAuth) {
       // redirection to to account page
@@ -43,7 +41,5 @@ export class ConnexionPageComponent implements OnInit {
     let userPassword: string = form.value['formPassword1'];
     // execute sign in from authentification service
     await this.authService.signIn(userLogin, userPassword);
-    // // redirection to account page
-    // this.router.navigate(['/account']);
   }
 }

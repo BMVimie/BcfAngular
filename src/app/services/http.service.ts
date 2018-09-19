@@ -1,6 +1,5 @@
 // import HTTP functions
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 // import to available class to Injector for creation
 import { Injectable } from '@angular/core';
 @Injectable()
@@ -15,7 +14,9 @@ export class HttpService {
         private httpClient: HttpClient
     ) { }
 
+    ///////////////////////////
     // GET request asynchronous
+    ///////////////////////////
     async get(requestMapping: string): Promise<any> {
         // define headers to allow access
         let httpHeaders = new HttpHeaders();
@@ -35,51 +36,44 @@ export class HttpService {
         return requestResponse;
     }
 
+    ////////////////////////////
     // POST request asynchronous
+    ////////////////////////////
     async post(requestMapping: string, requestBody: any): Promise<any> {
         // define headers to define content type
-        let httpHeaders = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'});
+        let httpHeaders = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+        let data: any[] = [];
         // send POST request
-        console.log("requestBody");
-        console.log(requestBody);
-        console.log(JSON.stringify(requestBody));
-        const body = new URLSearchParams();
-        body.set('username', requestBody.username);
-        body.set('password', requestBody.password);
-        body.set('_csrf', requestBody._csrf);
-        console.log( body.toString())
-
-        let httpResult = this.httpClient.post(this.serverUrl + requestMapping, body.toString(), {
-                // use headers defined above
-                headers: httpHeaders,
-                // define response format in JSON
-                responseType: 'json',
-                // enable to use credentials/certificates
-                withCredentials: true
-            });
-        httpResult.forEach((item)=>{console.log(item)});
+        let postResult = await this.httpClient.post(this.serverUrl + requestMapping, requestBody.toString(), {
+            // use headers defined above
+            headers: httpHeaders,
+            // define response format in JSON
+            responseType: 'json',
+            // enable to use credentials/certificates
+            withCredentials: true
+        })
+            // .toPromise()
+            ;
+        // return request response
+        return postResult;
     }
 
-    // POST request asynchronous for user
-    async postUserLogin(userName: string, userPassword: string, csrf: string): Promise<any> {
-        // define user login request parameters
-        let requestBody: any = {
-            username: userName,
-            password: userPassword,
-            _csrf: csrf
-        };
+    ///////////////////////////////////////////
+    // POST request asynchronous for user login
+    ///////////////////////////////////////////
+    async postUserLogin(userName: string, userPassword: string, _csrf: string): Promise<any> {
+        // declare request body
+        const requestBody = new URLSearchParams();
+        // add user name to request body
+        requestBody.set('username', userName);
+        // add password to request body
+        requestBody.set('password', userPassword);
+        // add csrf to request body
+        requestBody.set('_csrf', _csrf);
         // send POST asynchronous request for user login
-        await this.post('login', requestBody);
+        let postUserLoginResult = await this.post('login', requestBody);
+        // return request response
+        return postUserLoginResult;
     }
 
-    // POST request asynchronous for address
-    async postAddress(addressCountry: string, addressCity: string): Promise<any> {
-        // define address request parameters
-        let requestBody: any = {
-            addressCountry: addressCountry
-            , addressCity: addressCity
-        };
-        // send POST asynchronous request for address
-        await this.post('address', requestBody);
-    }
 }

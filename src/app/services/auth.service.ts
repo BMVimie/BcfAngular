@@ -11,58 +11,88 @@ import { HttpService } from '../services/http.service';
 export class AuthService implements OnInit {
 
   // define authentification status Cookie name
-  authCookieName: string = 'AuthStatus';
+  @Input() userInfosCookieName = 'userInfos';
 
   // define authentification boolean status with authentification local storage
   @Input() isAuth: boolean = this.authStatusToBool();
 
   constructor(
     // add Cookie service in this component
-    private cookieService: CookieService
+    private cookieService: CookieService,
     // add HTTP service to this component
-    , private httpService: HttpService
+    private httpService: HttpService
   ) { }
 
   // at initialization of this service
   ngOnInit() {
   }
 
-  // // sign in and return true
-  // signIn() {
-  //   // define authentification boolean status to true
-  //   this.isAuth = true;
-  //   // set authentification status Cookie to true
-  //   this.cookieService.set(this.authCookieName, 'true');
-  // }
-
+  //////////////////////////////////
   // sign in if HTTP request is true
+  //////////////////////////////////
   async signIn(userLogin: string, userPassword: string) {
-    let csrf : string;
+
+    // GET method to get token CSRF
+    ///////////////////////////////
+    // declare csrf (key to security)
+    let _csrf: string;
+    // execute GET method and get response request
     let getResp = await this.httpService.get('login');
-    csrf = getResp._csrf;
-    console.log('CSRF : ' + csrf);
-    let postResp = await this.httpService.postUserLogin(userLogin, userPassword, csrf);
-    //console.log('résultat requête POST ' + postResp);
-    // await this.httpService.postAddress(userLogin, userPassword);
+    // define csrf in GET response request
+    _csrf = getResp._csrf;
+
+    // POST method to verify if user login OK
+    /////////////////////////////////////////
+    // execute POST method to get user if authentified
+    let postResp = await this.httpService.postUserLogin(userLogin, userPassword, _csrf);
+    // declare user informations list
+    let userInfos: any[] = [];
+    // put all items int POST response into user informations list
+    await postResp.forEach((item) => {
+      userInfos.push(item);
+    });
+
+    // verify result and save it in cookie if authentified (= not contains CSRF)
+    //////////////////////////////////////////////////////
+    // if user information contains CSRF = user not authentified
+    if (JSON.stringify(userInfos).includes('csrf', 0)) {
+      // TO CHANGE FOR INVALID RESULT IN MODAL
+      console.log('login or password invalid');
+    }
+    // if user information doesn't contains CSRF = user authentified
+    else {
+      // put user informations in cookie
+      await this.cookieService.set(this.userInfosCookieName, JSON.stringify(userInfos));
+      // define authentification boolean status to true
+      this.isAuth = true;
+    }
+
   }
 
+  ////////////////////////////
   // sign out and return false
+  ////////////////////////////
   async signOut() {
     // define authentification boolean status to false
-    // this.isAuth = false;
-    // set authentification status Cookie to false
-    // this.cookieService.set(this.authCookieName, 'false');
+    this.isAuth = false;
+    // delet user informations cookie
+    this.cookieService.delete(this.userInfosCookieName);
+    // logout with Spring
     await this.httpService.get('logout');
   }
 
-  // return authentification status local storage in boolean
+  //////////////////////////////////////////////////////////////////////
+  // return authentification status when user informations cookie exists
+  //////////////////////////////////////////////////////////////////////
   authStatusToBool(): boolean {
-    // if authentification status Cookie is true
-    if (this.cookieService.get(this.authCookieName) === 'true') {
+    // if user informations cookie exists
+    if (this.cookieService.check(this.userInfosCookieName)) {
+      // return true for user authentified
       return true;
     }
-    // if authentification status Cookie is false or no authentification status Cookie
+    // if user informations cookie doesn't exists
     else {
+      // return false  for user not authentified
       return false;
     }
   }
