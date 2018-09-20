@@ -2,9 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-//import angular material library
-import {MatDialogModule, 
-  MatFormFieldModule,  
+// import angular material library
+import {MatDialogModule,
+  MatFormFieldModule,
   MatAutocompleteModule,
   MatBadgeModule,
   MatBottomSheetModule,
@@ -38,7 +38,7 @@ import {MatDialogModule,
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
-  MatTreeModule,} from '@angular/material';
+  MatTreeModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // import router module to build routes
@@ -62,7 +62,6 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { AllProjectsPageComponent } from './all-projects-page/all-projects-page.component';
 import { OneProjectPageComponent } from './one-project-page/one-project-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
-import { ConnexionPageComponent } from './connexion-page/connexion-page.component';
 import { CreateProjectPageComponent } from './create-project-page/create-project-page.component';
 import { ExplanationPageComponent } from './explanation-page/explanation-page.component';
 import { LegalNoticePageComponent } from './legal-notice-page/legal-notice-page.component';
@@ -81,13 +80,12 @@ const appRoutes = [
   { path: 'privacy', component: PrivacyPolicyPageComponent },
   { path: 'advices', component: AdvicesPageComponent },
   { path: 'rules', component: RulesPageComponent },
-  { path: 'allprojects', component: AllProjectsPageComponent },
-  { path: 'createproject', canActivate: [AuthGuard], component: CreateProjectPageComponent },
-  { path: 'oneproject', component: OneProjectPageComponent },
+  { path: 'projects', component: AllProjectsPageComponent },
+  { path: 'createproject', component: CreateProjectPageComponent },
+  { path: 'project/:id/:projectname', component: OneProjectPageComponent },
   { path: 'contact', component: ContactPageComponent },
-  { path: 'connexion', component: ConnexionPageComponent },
   { path: 'legalnotice', component: LegalNoticePageComponent },
-  { path: 'account', canActivate: [AuthGuard], component: AccountPageComponent },
+  { path: 'account', component: AccountPageComponent },
   { path: 'register', component: RegisterPageComponent },
   { path: '', component: WelcomePageComponent }, // path :'' define welcome page
   { path: '**', component: WelcomePageComponent } // if weird url '**' // put it everytime to end of the list (to not use iti first)
@@ -103,7 +101,6 @@ const appRoutes = [
     AllProjectsPageComponent,
     OneProjectPageComponent,
     ContactPageComponent,
-    ConnexionPageComponent,
     CreateProjectPageComponent,
     ExplanationPageComponent,
     LegalNoticePageComponent,

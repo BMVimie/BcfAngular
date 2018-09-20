@@ -10,6 +10,9 @@ import { HttpService } from '../services/http.service';
 @Injectable()
 export class AuthService implements OnInit {
 
+  @Input() userLoginToTry: string;
+  @Input() userPasswordToTry: string;
+
   // define authentification status Cookie name
   @Input() userInfosCookieName = 'userInfos';
 

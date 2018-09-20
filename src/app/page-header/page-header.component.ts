@@ -1,6 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Input } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 // import authentification service
 import { AuthService } from '../services/auth.service';
@@ -10,7 +10,6 @@ export interface DialogData {
   password: string;
 }
 
-
 @Component({
   selector: 'app-page-header',
   templateUrl: './page-header.component.html',
@@ -19,8 +18,9 @@ export interface DialogData {
 })
 export class PageHeaderComponent implements OnInit {
 
-  login: string;
-  password: string;
+  // declare variables
+  @Input() login: string;
+  @Input() password: string;
 
   constructor(
     // add authentification service to this component (to update connexion/account icons)
@@ -39,38 +39,64 @@ export class PageHeaderComponent implements OnInit {
     });
 
     dialogLogin.afterClosed().subscribe(result => {
-      console.log("Login : "+result);
+      this.authService.userLoginToTry = result;
     });
   }
+
 }
 
+/////////////////////////
+// login component
+/////////////////////////
 @Component({
   selector: 'app-login',
   templateUrl: './login.html',
 })
 export class LoginComponent {
-  constructor(public dialogLogin: MatDialogRef<LoginComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData, // add dialog to this component
-  public dialog: MatDialog) {}
+  // add dialog to this component
+  constructor(
+    public dialogLogin: MatDialogRef<LoginComponent>, @Inject(MAT_DIALOG_DATA)
+    public data: DialogData,
+    public dialog: MatDialog,
+    // add authentification service to this component (to update connexion/account icons)
+    private authService: AuthService
+  ) { }
   onNoClick(): void {
     this.dialogLogin.close();
   }
-  onClick(){
+  onClick() {
     const dialogPassword = this.dialog.open(PasswordComponent, {
       width: '250px',
     });
 
     dialogPassword.afterClosed().subscribe(result => {
-      console.log("Password : "+result);
+      this.authService.userPasswordToTry = result;
+      this.signIn();
     });
+
+  }
+
+  // call authentificate method in authentification service
+  async signIn() {
+    // execute sign in from authentification service
+    await this.authService.signIn(this.authService.userLoginToTry, this.authService.userPasswordToTry);
   }
 }
 
+/////////////////////////
+// password component
+/////////////////////////
 @Component({
   selector: 'app-password',
   templateUrl: './password.html',
 })
 export class PasswordComponent {
-  constructor(public dialogPassword: MatDialogRef<LoginComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+  constructor(
+    public dialogPassword: MatDialogRef<LoginComponent>,
+    @Inject(MAT_DIALOG_DATA)
+    public data: DialogData,
+  ) { }
+
   onNoClick(): void {
     this.dialogPassword.close();
   }

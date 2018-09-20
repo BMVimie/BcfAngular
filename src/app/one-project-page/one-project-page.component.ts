@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ViewEncapsulation} from '@angular/core';
+import { ViewEncapsulation } from '@angular/core';
+// import activated route to get parameters in URL
+import { ActivatedRoute } from '@angular/router';
+// import our HTTP service
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-one-project-page',
@@ -9,9 +13,22 @@ import {ViewEncapsulation} from '@angular/core';
 })
 export class OneProjectPageComponent implements OnInit {
 
-  constructor() { }
+  projectToDisplay: any;
+
+  constructor(
+    // add activated route
+    private route: ActivatedRoute,
+    // add HTTP service to this component
+    private httpService: HttpService
+  ) { }
 
   ngOnInit() {
+    this.getProject();
+  }
+
+  async getProject() {
+    let projectId = this.route.snapshot.params['id'];
+    this.projectToDisplay = await this.httpService.get('address/' + projectId);
   }
 
 }

@@ -32,8 +32,8 @@ export class AccountPageComponent implements OnInit {
   ngOnInit() {
     // if user not authentified (from authentification service)
     if (!this.authService.isAuth) {
-      // redirection to to account page
-      this.router.navigate(['/connexion']);
+      // redirection to to home page // security if user try to enter in thsi page by URL
+      this.router.navigate(['/home']);
     }
     else {
       // get user informations
@@ -58,6 +58,6 @@ export class AccountPageComponent implements OnInit {
     // execute sign out from authentification service
     await this.authService.signOut();
     // redirection to connexion page
-    this.router.navigate(['/connexion']);
+    this.router.navigate(['/home']);
   }
 }

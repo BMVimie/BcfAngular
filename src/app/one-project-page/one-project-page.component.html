@@ -1,8 +1,13 @@
 <div class="writings">
-  <br>
-  <br>
+  <!-- if project finded -->
+  <table class="table table-striped" *ngIf="projectToDisplay!=null">
+    <tr>
+      <td>
 
-  <p>
-    Mon projet en Bretagne
-  </p>
+        <h2>{{ projectToDisplay.addressCity }}</h2>
+        <br>
+        {{ projectToDisplay.addressCountry }}
+      </td>
+    </tr>
+  </table>
 </div>

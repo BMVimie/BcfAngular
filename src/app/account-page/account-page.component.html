@@ -1,8 +1,8 @@
-<div class="writings">
-<!-- test access to database-->
-<!-- loop to get address informations on table-->
+<!-- display contents if user authentified -->
+<div class="writings" *ngIf="authService.isAuth">
 <table class="table table-striped">
   <tr>
+    <!-- loop to get address informations on table-->
     <td colspan="3" *ngFor="let infos of userInfos">
       <h2>Votre profil</h2>
      Nom : {{ infos.userFamilyName }}
@@ -15,7 +15,9 @@
     </td>
   </tr>
 </table>
+
+<button class="btn btn-danger" (click)="onSignOut()">Se déconnecter</button>
 </div>
 
 
-<button class="btn btn-danger" (click)="onSignOut()">Se déconnecter</button>
+

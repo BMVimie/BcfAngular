@@ -3,11 +3,11 @@
   <h1>Tous les projets</h1>
 
   <!-- loop to get all projects from this component TypeScripts-->
-  <div id="allProjectsList">
+  <div id="allProjectsList" >
     <!-- for one project insert -->
     <div id="OneProjectInsert" class="writings" *ngFor="let project of projects">
       <!-- display project name with router ton one project page-->
-      <h4><a routerLink="/oneproject">{{project.addressCity}}</a></h4>
+      <h4><a routerLink="/project/{{project.addressId}}/{{project.addressCity}}">{{project.addressCity}}</a></h4>
       <!-- display project author -->
       de {{ project.addressCountry }}
     </div>

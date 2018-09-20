@@ -42,7 +42,6 @@ export class HttpService {
     async post(requestMapping: string, requestBody: any): Promise<any> {
         // define headers to define content type
         let httpHeaders = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
-        let data: any[] = [];
         // send POST request
         let postResult = await this.httpClient.post(this.serverUrl + requestMapping, requestBody.toString(), {
             // use headers defined above
@@ -52,7 +51,6 @@ export class HttpService {
             // enable to use credentials/certificates
             withCredentials: true
         })
-            // .toPromise()
             ;
         // return request response
         return postResult;
