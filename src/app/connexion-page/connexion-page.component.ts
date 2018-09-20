@@ -29,7 +29,7 @@ export class ConnexionPageComponent implements OnInit {
   // at initialization of this component
   ngOnInit() {
     // if user authentified (from authentification service)
-    if (this.authService.isAuth){
+    if (this.authService.isAuth) {
       // redirection to to account page
       this.router.navigate(['/account']);
     }
@@ -38,9 +38,9 @@ export class ConnexionPageComponent implements OnInit {
   // call authentificate method in authentification service
   onSignIn(form: NgForm) {
     // get user login from formulary
-    let userLogin : string = form.value['formLogin1'];
+    let userLogin: string = form.value['formLogin1'];
     // get user login from formulary
-    let userPassword : string = form.value['formPassword1'];
+    let userPassword: string = form.value['formPassword1'];
     // execute sign in from authentification service
     this.authService.signIn(userLogin, userPassword);
     // // redirection to account page

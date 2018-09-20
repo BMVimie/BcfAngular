@@ -38,7 +38,7 @@ export class AccountPageComponent implements OnInit {
   // get user address
   async getUserInfos() {
     // get user adersse with HTTP GET request asynchronous
-    this.userInfos = await this.httpService.get("user");
+    this.userInfos = await this.httpService.get('user');
   }
 
   // call disconnect method in authentification service

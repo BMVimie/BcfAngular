@@ -13,13 +13,9 @@
     </div>
     <div class="col-md-3" id="headerConnectDiv">
 
-      <!-- connection/account icons -->
-      <!-- redirection to connexion page if no authentification-->
-      <a routerLink="/connexion" class="align-right">
-        <span class="glyphicon glyphicon-log-in gi-2x glyphColor align-right" *ngIf="!authService.isAuth"></span>
-      </a>
-      &nbsp;&nbsp;
-      <!-- redirection to account page if authentification OK-->
+      <!-- connection popup -->
+      <button mat-raised-button (click)="openConnection()" class="connection-button">Connexion&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-log-in gi-2x glyphColor align-right" *ngIf="!authService.isAuth"></span></button>
+      <!-- account icons -->
       <a routerLink="/account" class="align-right">
         <span class="glyphicon glyphicon-user gi-2x glyphColor align-right" *ngIf="authService.isAuth"></span>
       </a>
@@ -37,25 +33,30 @@
       <!-- "how it works" button + access to explanation page -->
 
       <a routerLink="/explanation">
-        <button type="button" class="buttonMenu">Comment ça marche</button>
+        <button type="button" class="buttonMenu">Accueil</button>
       </a>
 
       <!-- "all projects" button + access to all projects page -->
 
       <a routerLink="/allprojects">
-        <button type="button" class="buttonMenu">Tous les projets</button>
+        <button type="button" class="buttonMenu">Projets</button>
       </a>
 
       <!-- "create project" button + access to create project page -->
 
       <a routerLink="/createproject">
-        <button type="button" class="buttonMenu">Proposer un projet</button>
+        <button type="button" class="buttonMenu">Nouveau projet</button>
       </a>
 
       <!-- "contact" button + access to contact page -->
 
       <a routerLink="/contact">
-        <button type="button" class="buttonMenu">Contact</button>
+        <button type="button" class="buttonMenu">Contacts</button>
+      </a>
+
+
+      <a routerLink="/register">
+        <button type="button" class="buttonMenu">Test Register</button>
       </a>
     </div>
     <div class="col-md-3">

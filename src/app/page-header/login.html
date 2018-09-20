@@ -1,0 +1,11 @@
+<h2 mat-dialog-title class="popup-title">Identifiant</h2>
+<mat-dialog-content>
+      <mat-form-field>
+        <input matInput class="form-control mr-sm-2" ngModel [(ngModel)]="datalogin">
+      </mat-form-field>
+</mat-dialog-content> 
+<p class="popup-text">Si vous n'avez pas de compte cliquez <a href="http://localhost:4200/register" class="popup-link">ici</a></p> 
+<mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="datalogin" cdkFocusInitial (click)="onClick()" class="popup-button-ok">Valider</button>
+  <button mat-button (click)="onNoClick()" class="popup-button-notok">Annuler</button>
+</mat-dialog-actions>

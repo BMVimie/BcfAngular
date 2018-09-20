@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import {ViewEncapsulation} from '@angular/core';
+import { ViewEncapsulation } from '@angular/core';
+
+// import our HTTP service
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-all-projects-page',
@@ -10,13 +12,17 @@ import {ViewEncapsulation} from '@angular/core';
 })
 export class AllProjectsPageComponent implements OnInit {
 
-  name:String;
+  // declare projects list
+  projects: any;
 
-
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+    // add HTTP service to this component
+    private httpService: HttpService
+  ) { }
 
   ngOnInit() {
-      this.name = this.route.snapshot.params['id'];
+    // get all projects
+    this.projects = this.httpService.get('projet');
   }
 
 }

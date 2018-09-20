@@ -4,7 +4,7 @@ import { OnInit, Input } from '@angular/core';
 import { Injectable } from '@angular/core';
 // import Cookie service
 import { CookieService } from 'ngx-cookie-service';
-// import HTTP service
+// import our HTTP service
 import { HttpService } from '../services/http.service';
 
 @Injectable()
@@ -37,10 +37,11 @@ export class AuthService implements OnInit {
 
   // sign in if HTTP request is true
   async signIn(userLogin: string, userPassword: string) {
-    // get user adersse with HTTP GET request asynchronous
     // this.isAuth = await this.httpService.get("login");
+    let resp : JSON = await this.httpService.get('login');
+    console.log(resp);
     // await this.httpService.postUserLogin(userLogin, userPassword);
-    await this.httpService.postAddress(userLogin, userPassword);
+    // await this.httpService.postAddress(userLogin, userPassword);
   }
 
   // sign out and return false
@@ -54,7 +55,7 @@ export class AuthService implements OnInit {
   // return authentification status local storage in boolean
   authStatusToBool(): boolean {
     // if authentification status Cookie is true
-    if (this.cookieService.get(this.authCookieName) == 'true') {
+    if (this.cookieService.get(this.authCookieName) === 'true') {
       return true;
     }
     // if authentification status Cookie is false or no authentification status Cookie

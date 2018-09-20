@@ -6,7 +6,7 @@
 ////////////////////
 //STANDARD COLORS
 ////////////////////
-
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 :root {
     --black: rgb(0,0,0);
     --dark-grey: rgb(51,51,51);
@@ -22,6 +22,7 @@
     --purple: rgb(179,25,149);
     --magenta: rgb(224,5,140);
     --orange: rgb(255,167,0);
+    --orange-light: rgb(255, 207, 117);
     --yellow: rgb(230,220,0);
  }
 
@@ -322,8 +323,8 @@ footer {
 }
 
 .investi-en-bretagne-logo-onBlack {
-    width: 16.7vw;
-    height: 16.7vw;
+    width: 15.0vw;
+    height: 15.0vw;
     position: absolute;
     top:0px;
     background: url("../assets/img/logo.IEB.jaunesurbleu.onBlack.1.png") no-repeat;
@@ -351,7 +352,7 @@ footer {
 }
 
 #headerConnectDiv{
-    background-color: var(--magenta);
+    //background-color: var(--magenta);
     // display: flex;
     margin-bottom: 0.5%;
     text-align: right !important;
@@ -380,4 +381,40 @@ footer {
     min-height: 50px;
 }
 
+::ng-deep .mat-form-field-underline {
+    display: none;
+  }
+
+.mat-dialog-container {
+    background-color: var(--dark-blue);
+    text-align: center;
+}
+
+.mat-dialog-actions{
+    display: flex;
+    justify-content: center;
+}
+
+.popup-button-ok{
+    background-color: var(--orange);
+}
+
+.popup-button-notok{
+    background-color: var(--orange-light);
+}
+
+.popup-title{
+    color: var(--white) !important; 
+}
+.popup-text{
+    color: var(--white);
+}
+.popup-link{
+    color: var(--orange) !important; 
+}
+
+.connection-button{
+    background-color: var(--magenta);
+    color: var(--white);
+}
 ///////////////////

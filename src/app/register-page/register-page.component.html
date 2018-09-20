@@ -1,0 +1,69 @@
+<div class="writings">
+  <h2>Créer un compte</h2>
+  <form (ngSubmit)="onSignIn(b)" #b="ngForm" class="form-inline">
+      <table class="formTable">
+          <tr>
+              <label for="formLogin">Identifiant</label>
+          </tr>
+          <tr>
+              <td>
+                <input class="form-control mr-sm-2" type="text" placeholder="choisissez un identifiant" ngModel [(ngModel)]="formLogin" name="formLogin" size="50">
+              </td>
+          </tr>
+          <tr>
+              <label for="formPassword">Mot de passe</label>
+          </tr>
+          <tr>
+              <td>
+                <input class="form-control mr-sm-2" type="password" placeholder="choisissez un mot de passe" ngModel [(ngModel)]="formPassword" name="formPassword" size="50">
+              </td>
+          </tr>
+          <tr>
+              <label for="formEmail">Adresse électronique</label>
+          </tr>
+          <tr>
+              <td>
+                <input class="form-control mr-sm-2" type="text" placeholder="saisissez votre adresse électronique" ngModel [(ngModel)]="formEmail" name="formEmail" size="50">
+              </td>
+              <td>
+                <div class="accountCreationRules">Obligatoire</div>
+              </td>
+          </tr>
+          <tr>
+            <label for="formFamilyName">Nom </label>
+          </tr>
+          <tr>
+            <td>
+              <input class="form-control mr-sm-2" type="text" placeholder="saisissez votre nom" ngModel [(ngModel)]="formFamilyName" name="formFamilyName" size="50">
+            </td>
+          </tr>
+          <tr>
+            <label for="formFirstName">Prenom </label>
+          </tr>
+          <tr>
+            <td>
+              <input class="form-control mr-sm-2" type="text" placeholder="saisissez votre prénom" ngModel [(ngModel)]="formFirstName" name="formFirstName" size="50">
+            </td>
+          </tr>
+          <tr>
+              <label for="formBirthDate">Date de naissance </label>
+          </tr>
+          <tr>
+              <td>
+                <input class="form-control mr-sm-2" type="date" placeholder="date de naissance" ngModel [(ngModel)]="formBirthDate" name="formBirthDate" size="50">
+              </td>
+          </tr>
+          <tr>
+            <label for="formPhoneNumber">Téléphone </label>
+          </tr>
+          <tr>
+            <td>
+              <input class="form-control mr-sm-2" type="text" placeholder="saisissez votre numéro de téléphone" ngModel [(ngModel)]="formPhoneNumber" name="formPhoneNumber" size="50">
+            </td>
+          </tr>
+          <tr>
+            <br><button type="submit" class="btn btn-success glyphicon glyphicon-circle-arrow-right gi-2x"></button>
+          </tr>
+      </table>
+  </form>
+</div>
