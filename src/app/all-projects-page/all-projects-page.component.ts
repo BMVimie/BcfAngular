@@ -22,7 +22,13 @@ export class AllProjectsPageComponent implements OnInit {
 
   ngOnInit() {
     // get all projects
-    this.projects = this.httpService.get('projet');
+    this.getProjects();
+  }
+
+  // get all projects
+  async getProjects() {
+    // get all projects with HTTP GET request asynchronous
+    this.projects = await this.httpService.get('address'); //// CHANGE ADDRESS TO PROJECT WHEN PROJECT DATABASE READY ////
   }
 
 }

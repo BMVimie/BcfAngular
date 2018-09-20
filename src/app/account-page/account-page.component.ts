@@ -1,12 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
-// import HTTP service
-import { HttpService } from '../services/http.service';
 // import authentification service
 import { AuthService } from '../services/auth.service';
-
 // import router and CanActivate function (for redirection)
 import { Router } from '@angular/router';
+// import Cookie service
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-account-page',
@@ -17,34 +16,47 @@ import { Router } from '@angular/router';
 
 export class AccountPageComponent implements OnInit {
 
-  // define and instantiate user address to get
+  // declare user infos (to be used in HTML)
   userInfos: any;
 
   constructor(
-    // add HTTP service to this component
-    private httpService: HttpService
     // add authentification service to this component
-    , private authService: AuthService
+    private authService: AuthService,
     // add router link to this service
-    , private router: Router
+    private router: Router,
+    // add Cookie service in this component
+    private cookieService: CookieService
   ) { }
 
   // at initialization of this component
   ngOnInit() {
-    // get user address
-    this.getUserInfos();
+    // if user not authentified (from authentification service)
+    if (!this.authService.isAuth) {
+      // redirection to to account page
+      this.router.navigate(['/connexion']);
+    }
+    else {
+      // get user informations
+      this.getUserInfos();
+    }
+
   }
 
-  // get user address
-  async getUserInfos() {
-    // get user adersse with HTTP GET request asynchronous
-    this.userInfos = await this.httpService.get('user');
+  // get user informations
+  getUserInfos() {
+    // if user autentified
+    if (this.authService.isAuth) {
+      // get user infos in String from Cookie 'userInfos'
+      let userInfosString = this.cookieService.get(this.authService.userInfosCookieName);
+      // convert user infos in String into JSON
+      this.userInfos = JSON.parse(userInfosString);
+    }
   }
 
   // call disconnect method in authentification service
-  onSignOut() {
+  async onSignOut() {
     // execute sign out from authentification service
-    this.authService.signOut();
+    await this.authService.signOut();
     // redirection to connexion page
     this.router.navigate(['/connexion']);
   }

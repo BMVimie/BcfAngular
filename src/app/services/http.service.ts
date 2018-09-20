@@ -1,6 +1,5 @@
 // import HTTP functions
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 // import to available class to Injector for creation
 import { Injectable } from '@angular/core';
 @Injectable()
@@ -15,10 +14,12 @@ export class HttpService {
         private httpClient: HttpClient
     ) { }
 
+    ///////////////////////////
     // GET request asynchronous
+    ///////////////////////////
     async get(requestMapping: string): Promise<any> {
         // define headers to allow access
-        let httpHeaders = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
+        let httpHeaders = new HttpHeaders();
         // declare request response in await function (for asynchronous)
         let requestResponse = await this.httpClient
             // GET request HTTP with complete URL
@@ -28,57 +29,51 @@ export class HttpService {
                 // define response format in JSON
                 responseType: 'json',
                 // enable to use credentials/certificates
-                withCredentials: false
+                withCredentials: true
                 // transform to promise to be able asynchronous
             }).toPromise();
         // return request response
         return requestResponse;
     }
 
+    ////////////////////////////
     // POST request asynchronous
+    ////////////////////////////
     async post(requestMapping: string, requestBody: any): Promise<any> {
         // define headers to define content type
-        let httpHeaders = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'});
+        let httpHeaders = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+        let data: any[] = [];
         // send POST request
-        await this.httpClient.post(this.serverUrl + requestMapping, requestBody, {
-                // use headers defined above
-                headers: httpHeaders,
-                // define response format in JSON
-                responseType: 'json',
-                // enable to use credentials/certificates
-                withCredentials: true
-                // transform to promise to be able asynchronous
-            }).subscribe(
-                // if success
-                data => {
-                    console.log('POST Request is successful', data);
-                },
-                // if failed
-                error => {
-                    console.log('POST request error', error);
-                }
-            );
+        let postResult = await this.httpClient.post(this.serverUrl + requestMapping, requestBody.toString(), {
+            // use headers defined above
+            headers: httpHeaders,
+            // define response format in JSON
+            responseType: 'json',
+            // enable to use credentials/certificates
+            withCredentials: true
+        })
+            // .toPromise()
+            ;
+        // return request response
+        return postResult;
     }
 
-    // POST request asynchronous for user
-    async postUserLogin(userName: string, userPassword: string): Promise<any> {
-        // define user login request parameters
-        let requestBody: any = {
-            username: userName
-            , userpassword: userPassword
-        };
+    ///////////////////////////////////////////
+    // POST request asynchronous for user login
+    ///////////////////////////////////////////
+    async postUserLogin(userName: string, userPassword: string, _csrf: string): Promise<any> {
+        // declare request body
+        const requestBody = new URLSearchParams();
+        // add user name to request body
+        requestBody.set('username', userName);
+        // add password to request body
+        requestBody.set('password', userPassword);
+        // add csrf to request body
+        requestBody.set('_csrf', _csrf);
         // send POST asynchronous request for user login
-        await this.post('login', requestBody);
+        let postUserLoginResult = await this.post('login', requestBody);
+        // return request response
+        return postUserLoginResult;
     }
 
-    // POST request asynchronous for address
-    async postAddress(addressCountry: string, addressCity: string): Promise<any> {
-        // define address request parameters
-        let requestBody: any = {
-            addressCountry: addressCountry
-            , addressCity: addressCity
-        };
-        // send POST asynchronous request for address
-        await this.post('address', requestBody);
-    }
 }

@@ -418,3 +418,33 @@ footer {
     color: var(--white);
 }
 ///////////////////
+///////////////////
+//all projects page
+///////////////////
+
+#allProjectsList{
+    // flex options
+    display: flex;
+    flex-flow: wrap;
+    // align options
+    align-items: center;
+    align-content: space-around;
+}
+
+#OneProjectInsert{
+    // flex options
+    display: flex;
+    flex-direction: column;
+    // align options
+    align-content: space-between;
+    align-items: center;
+    // margin/padding
+    padding: 10px;
+    margin: 10px;
+    // size
+    height: 100px;
+    width: 300px;
+    // face
+    background-color: rgb(253, 246, 205);
+    border-radius: 20px;
+}
