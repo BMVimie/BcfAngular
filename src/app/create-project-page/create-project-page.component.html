@@ -1,8 +1,82 @@
 <div class="writings">
-  <br>
-  <br>
-
-  <p>
-    Indiquer les élément de votre projet
-  </p>
+  <h2>Créer un projet</h2>
+  <form (ngSubmit)="onSignIn(b)" #b="ngForm" class="form-inline">
+      <table class="formTable">
+          <tr>
+            <h3>Projet</h3>
+          </tr>
+          <tr>
+              <label for="formProjectName">Nom du Projet</label>
+          </tr>
+          <tr>
+              <td>
+                <input class="form-control mr-sm-2" type="text" placeholder="ex: Le beurre c'est mieux sans sel" ngModel [(ngModel)]="formProjectName" name="formProjectName" size="50">
+              </td>
+              <td>
+                <div class="accountCreationRules">Obligatoire</div>
+              </td>
+          </tr>
+          <tr>
+              <label for="formGoal">Objectif à atteindre</label>
+          </tr>
+          <tr>
+              <td>
+                <input class="form-control mr-sm-2" type="text" placeholder="ex: 1337 42" ngModel [(ngModel)]="formGoal" name="formGoal" size="50">
+              </td>
+              <td>
+                <div class="accountCreationRules">En euros, obligatoire</div>
+              </td>
+          </tr>
+          <hr>
+          <tr>
+            <h3>En-tête</h3>
+          </tr>
+          <tr>
+              <label for="formHeaderName">Titre de l'entête</label>
+          </tr>
+          <tr>
+              <td>
+                <input class="form-control mr-sm-2" type="text" placeholder="ex: Le beurre doux c'est bon" ngModel [(ngModel)]="formHeaderName" name="formHeaderName" size="50">
+              </td>
+              <td>
+                <div class="accountCreationRules">Obligatoire</div>
+              </td>
+          </tr>
+          <tr>
+            <label for="formFamilyName">Nom </label>
+          </tr>
+          <tr>
+            <td>
+              <input class="form-control mr-sm-2" type="text" placeholder="saisissez votre nom" ngModel [(ngModel)]="formFamilyName" name="formFamilyName" size="50">
+            </td>
+          </tr>
+          <tr>
+            <label for="formFirstName">Prenom </label>
+          </tr>
+          <tr>
+            <td>
+              <input class="form-control mr-sm-2" type="text" placeholder="saisissez votre prénom" ngModel [(ngModel)]="formFirstName" name="formFirstName" size="50">
+            </td>
+          </tr>
+          <tr>
+              <label for="formBirthDate">Date de naissance </label>
+          </tr>
+          <tr>
+              <td>
+                <input class="form-control mr-sm-2" type="date" placeholder="date de naissance" ngModel [(ngModel)]="formBirthDate" name="formBirthDate" size="50">
+              </td>
+          </tr>
+          <tr>
+            <label for="formPhoneNumber">Téléphone </label>
+          </tr>
+          <tr>
+            <td>
+              <input class="form-control mr-sm-2" type="text" placeholder="saisissez votre numéro de téléphone" ngModel [(ngModel)]="formPhoneNumber" name="formPhoneNumber" size="50">
+            </td>
+          </tr>
+          <tr>
+            <br><button type="submit" class="btn btn-success glyphicon glyphicon-circle-arrow-right gi-2x"></button>
+          </tr>
+      </table>
+  </form>
 </div>
