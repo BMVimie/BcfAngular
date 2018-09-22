@@ -1,23 +1,25 @@
 <!-- display contents if user authentified -->
 <div class="writings" *ngIf="authService.isAuth">
-<table class="table table-striped">
-  <tr>
-    <!-- loop to get address informations on table-->
-    <td colspan="3" *ngFor="let infos of userInfos">
-      <h2>Votre profil</h2>
-     Nom : {{ infos.userFamilyName }}
-     <br>
-     Prénom : {{ infos.userFirstName }}
-     <br>
-     Téléphone : {{ infos.userPhoneNumber }}
-     <br>
-     E-mail : {{ infos.userEmail }}
-    </td>
-  </tr>
-</table>
+  <table class="table table-striped">
+    <tr>
+      <!-- loop to get address informations on table-->
+      <td colspan="3" *ngFor="let infos of userInfos">
+        <h2>Votre profil</h2>
+        Identifiant : {{ infos.login }}
+        <br>
+        Nom : {{ infos.userFamilyName }}
+        <br>
+        Prénom : {{ infos.userFirstName }}
+        <br>
+        <!-- display user birth date with pipe to format in french date -->
+        Date de naissance : {{ infos.userBirthDate | date: 'dd/MM/yyyy' }}
+        <br>
+        Téléphone : {{ infos.userPhoneNumber }}
+        <br>
+        E-mail : {{ infos.userEmail }}
+      </td>
+    </tr>
+  </table>
 
-<button class="btn btn-danger" (click)="onSignOut()">Se déconnecter</button>
+  <button class="btn btn-danger" (click)="onSignOut()">Se déconnecter</button>
 </div>
-
-
-

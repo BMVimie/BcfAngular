@@ -39,7 +39,7 @@ export class HttpService {
     ////////////////////////////
     // POST request asynchronous
     ////////////////////////////
-    async post(requestMapping: string, requestBody: any): Promise<any> {
+    async postFormUnlencoded(requestMapping: string, requestBody: any): Promise<any> {
         // define headers to define content type
         let httpHeaders = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
         // send POST request
@@ -52,6 +52,18 @@ export class HttpService {
             withCredentials: true
         })
             ;
+        // return request response
+        return postResult;
+    }
+
+    async postRawBody(requestMapping: string, requestBody: any): Promise<any> {
+        // send POST request
+        let postResult = await this.httpClient.post(this.serverUrl + requestMapping, requestBody, {
+            // define response format in JSON
+            responseType: 'json',
+            // enable to use credentials/certificates
+            withCredentials: true
+        });
         // return request response
         return postResult;
     }
@@ -69,7 +81,7 @@ export class HttpService {
         // add csrf to request body
         requestBody.set('_csrf', _csrf);
         // send POST asynchronous request for user login
-        let postUserLoginResult = await this.post('login', requestBody);
+        let postUserLoginResult = await this.postFormUnlencoded('login', requestBody);
         // return request response
         return postUserLoginResult;
     }
