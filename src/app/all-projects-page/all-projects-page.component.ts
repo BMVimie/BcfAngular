@@ -29,6 +29,7 @@ export class AllProjectsPageComponent implements OnInit {
   async getProjects() {
     // get all projects with HTTP GET request asynchronous
     this.projects = await this.httpService.get('project'); //// CHANGE ADDRESS TO PROJECT WHEN PROJECT DATABASE READY ////
+    console.log(this.projects);
   }
 
 }
