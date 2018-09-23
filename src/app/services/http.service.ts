@@ -50,8 +50,7 @@ export class HttpService {
             responseType: 'json',
             // enable to use credentials/certificates
             withCredentials: true
-        })
-            ;
+        });
         // return request response
         return postResult;
     }

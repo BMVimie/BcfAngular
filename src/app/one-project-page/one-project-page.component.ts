@@ -28,7 +28,8 @@ export class OneProjectPageComponent implements OnInit {
 
   async getProject() {
     let projectId = this.route.snapshot.params['id'];
-    this.projectToDisplay = await this.httpService.get('address/' + projectId);
+    this.projectToDisplay = await this.httpService.get('project/' + projectId);
+    console.log(this.projectToDisplay);
   }
 
 }

@@ -448,3 +448,21 @@ footer {
     background-color: var(--orange-light);
     border-radius: 20px;
 }
+
+#projectCommentInsert{
+    // flex options
+    display: flex;
+    flex-direction: column;
+    // align options
+    align-content: space-between;
+    align-items: center;
+    // margin/padding
+    padding: 10px;
+    margin: 10px;
+    // size
+    height:  fit-content;
+    width: fit-content;
+    // face
+    background-color: var(--orange-light);
+    border-radius: 20px;
+}
