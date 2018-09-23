@@ -27,11 +27,11 @@ export class CreateProjectPageComponent implements OnInit {
     // get all form values
     //////////////////////
     // get project name from formulary
-    let projectName: string = form.value['formLogin'];
+    let projectName: string = form.value['formProjectName'];
     // get project term date from formulary
-    let projectTerm: string = form.value['formPassword'];
+    let projectTerm: string = form.value['formTermDate'];
     // get project funding goal from formulary
-    let projectFundingGoal: string = form.value['formEmail'];
+    let projectFundingGoal: string = form.value['formGoal'];
 
     // post all values in user tables
     /////////////////////////////////
@@ -44,6 +44,8 @@ export class CreateProjectPageComponent implements OnInit {
       // add project funding goal to request body
       projectFundingGoal: projectFundingGoal
     };
+
+    console.log(requestBody);
 
     // send POST asynchronous request for user
     /////////////////////////////////
