@@ -3,14 +3,14 @@
   <form (ngSubmit)="onSignIn(b)" #b="ngForm" class="form-inline">
       <table class="formTable">
           <tr>
-            <h3>Projet</h3>
+            <td colspan="2"><h3>Projet</h3></td> 
           </tr>
           <tr>
               <label for="formProjectName">Nom du Projet</label>
           </tr>
           <tr>
               <td>
-                <input class="form-control mr-sm-2" type="text" placeholder="ex: Le beurre c'est mieux sans sel" ngModel [(ngModel)]="formProjectName" name="formProjectName" size="50">
+                <input class="form-control mr-sm-2" type="text" placeholder="ex: Le beurre c'est mieux sans sel" ngModel [(ngModel)]="formProjectName" name="formProjectName" size="50" required>
               </td>
               <td>
                 <div class="accountCreationRules">Obligatoire</div>
@@ -21,57 +21,135 @@
           </tr>
           <tr>
               <td>
-                <input class="form-control mr-sm-2" type="text" placeholder="ex: 1337 42" ngModel [(ngModel)]="formGoal" name="formGoal" size="50">
+                <input class="form-control mr-sm-2" type="text" placeholder="ex: 1337 42" ngModel [(ngModel)]="formGoal" name="formGoal" size="50" required>
               </td>
               <td>
                 <div class="accountCreationRules">En euros, obligatoire</div>
               </td>
           </tr>
+          <tr>
+            <label for="formBirthDate">Date de fin de projet </label>
+          </tr>
+          <tr>
+              <td>
+                <input class="form-control mr-sm-2" type="date" placeholder="ex : 21/12/2012" ngModel [(ngModel)]="formTermDate" name="formTermDate" size="50" required>
+              </td>
+              <td>
+                <div class="accountCreationRules">Obligatoire</div>
+              </td>
+          </tr>
           <hr>
           <tr>
-            <h3>En-tête</h3>
+            <td colspan="2"><h3>En-tête</h3></td>
           </tr>
           <tr>
               <label for="formHeaderName">Titre de l'entête</label>
           </tr>
           <tr>
               <td>
-                <input class="form-control mr-sm-2" type="text" placeholder="ex: Le beurre doux c'est bon" ngModel [(ngModel)]="formHeaderName" name="formHeaderName" size="50">
+                <input class="form-control mr-sm-2" type="text" placeholder="ex: Le beurre doux c'est bon" ngModel [(ngModel)]="formHeaderName" name="formHeaderName" size="50" required>
               </td>
               <td>
                 <div class="accountCreationRules">Obligatoire</div>
               </td>
           </tr>
           <tr>
-            <label for="formFamilyName">Nom </label>
+            <label for="formFamilyName">Contenu de l'entête </label>
           </tr>
           <tr>
             <td>
-              <input class="form-control mr-sm-2" type="text" placeholder="saisissez votre nom" ngModel [(ngModel)]="formFamilyName" name="formFamilyName" size="50">
+              <input class="form-control mr-sm-2" type="text" placeholder="ex: Pour les adeptes du beurre doux" ngModel [(ngModel)]="formHeaderText" name="formHeaderText" size="50">
             </td>
           </tr>
           <tr>
-            <label for="formFirstName">Prenom </label>
+            <td colspan="2"><h3>Article</h3></td>
           </tr>
           <tr>
-            <td>
-              <input class="form-control mr-sm-2" type="text" placeholder="saisissez votre prénom" ngModel [(ngModel)]="formFirstName" name="formFirstName" size="50">
-            </td>
-          </tr>
-          <tr>
-              <label for="formBirthDate">Date de naissance </label>
+              <label for="formHeaderName">Titre de l'article</label>
           </tr>
           <tr>
               <td>
-                <input class="form-control mr-sm-2" type="date" placeholder="date de naissance" ngModel [(ngModel)]="formBirthDate" name="formBirthDate" size="50">
+                <input class="form-control mr-sm-2" type="text" placeholder="ex: Le premier beurre doux made in bretagne" ngModel [(ngModel)]="formArticleName" name="formArticleName" size="50" required>
+              </td>
+              <td>
+                <div class="accountCreationRules">Obligatoire</div>
               </td>
           </tr>
           <tr>
-            <label for="formPhoneNumber">Téléphone </label>
+            <label for="formFamilyName">Contenu de l'article </label>
           </tr>
           <tr>
             <td>
-              <input class="form-control mr-sm-2" type="text" placeholder="saisissez votre numéro de téléphone" ngModel [(ngModel)]="formPhoneNumber" name="formPhoneNumber" size="50">
+              <input class="form-control mr-sm-2" type="text" placeholder="ex : Bonjour, je m'appelle ..." ngModel [(ngModel)]="formArticleText" name="formArticleText" size="50">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2"><h3>Pied de page</h3></td>
+          </tr>
+          <tr>
+              <label for="formHeaderName">Titre du pied de page</label>
+          </tr>
+          <tr>
+              <td>
+                <input class="form-control mr-sm-2" type="text" placeholder="ex: Beurre doux Bretagne - 2018" ngModel [(ngModel)]="formFooterName" name="formFooterName" size="50" required>
+              </td>
+              <td>
+                <div class="accountCreationRules">Obligatoire</div>
+              </td>
+          </tr>
+          <tr>
+            <label for="formFamilyName">Contenu du pied de page </label>
+          </tr>
+          <tr>
+            <td>
+              <input class="form-control mr-sm-2" type="text" placeholder="ex : beurredouxbretagne@bzh.bzh - 0635353535 " ngModel [(ngModel)]="formFooterText" name="formFooterText" size="50">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2"><h3>Contrepartie</h3></td>
+          </tr>
+          <tr>
+              <label for="formHeaderName">Titre de la contrepartie</label>
+          </tr>
+          <tr>
+              <td>
+                <input class="form-control mr-sm-2" type="text" placeholder="ex: petit beurre" ngModel [(ngModel)]="formCounterpartName" name="formCounterpartName" size="50" required>
+              </td>
+              <td>
+                <div class="accountCreationRules">Obligatoire</div>
+              </td>
+          </tr>
+          <tr>
+            <label for="formFamilyName">Contenu de la contrepartie </label>
+          </tr>
+          <tr>
+            <td>
+              <input class="form-control mr-sm-2" type="text" placeholder="ex : 1 kg de beurre doux " ngModel [(ngModel)]="formCounterpartText" name="formCounterpartText" size="50">
+            </td>
+            <td>
+              <div class="accountCreationRules">Obligatoire</div>
+            </td>
+          </tr>
+          <tr>
+            <label for="formFamilyName">Prix de la contrepartie </label>
+          </tr>
+          <tr>
+            <td>
+              <input class="form-control mr-sm-2" type="text" placeholder="ex : 15 euros " ngModel [(ngModel)]="formCounterpartPrice" name="formCounterpartPrice" size="50">
+            </td>
+            <td>
+              <div class="accountCreationRules">Obligatoire</div>
+            </td>
+          </tr>
+          <tr>
+            <label for="formFamilyName">Quantité de la contrepartie disponible</label>
+          </tr>
+          <tr>
+            <td>
+              <input class="form-control mr-sm-2" type="text" placeholder="ex : 200 " ngModel [(ngModel)]="formCounterpartQuantity" name="formCounterpartQuantity" size="50">
+            </td>
+            <td>
+              <div class="accountCreationRules">Obligatoire</div>
             </td>
           </tr>
           <tr>
