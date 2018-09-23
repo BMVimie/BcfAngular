@@ -1,13 +1,31 @@
-<div class="writings">
-  <!-- if project finded -->
-  <table class="table table-striped" *ngIf="projectToDisplay!=null">
+<!-- if project finded -->
+<div class="writings" *ngIf="projectToDisplay!=null">
+  <!-- datas table -->
+  <table class="table table-striped" >
     <tr>
       <td>
-
-        <h2>{{ projectToDisplay.addressCity }}</h2>
+        <!-- display project name -->
+        <h2>{{ projectToDisplay.projectName }}</h2>
         <br>
-        {{ projectToDisplay.addressCountry }}
+        <!-- display funding goal -->
+        Somme à collecter : {{ projectToDisplay.projectFundingGoal }} €
+        <br>
+        <!-- display term of crowdfunding -->
+        Avant le {{ projectToDisplay.projectTerm | date: 'dd/MM/yyyy'}}
       </td>
     </tr>
   </table>
+
+      <!-- loop on project comments -->
+      <div id="projectCommentInsert" class="writings" *ngFor="let comment of projectToDisplay.comments">
+        <!-- display comment date and name -->
+         {{ comment.commentDate | date: 'dd/MM/yyyy' }} : <h4>{{ comment.commentName }}</h4>
+         <!-- display comment text -->
+         {{comment.commentText}}
+      </div>
+</div>
+
+<!-- if no data found -->
+<div class="writings" *ngIf="projectToDisplay==null">
+  Aucune donnée trouvée pour ce projet
 </div>
