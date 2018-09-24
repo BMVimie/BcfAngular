@@ -46,7 +46,6 @@ import { RouterModule } from '@angular/router';
 
 // import our services
 import { AuthService } from './services/auth.service';
-import { AuthGuard } from './services/auth-guard.service';
 import { HttpService } from './services/http.service';
 
 // import HTTP client
@@ -72,6 +71,7 @@ import { AccountPageComponent } from './account-page/account-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { LoginComponent } from './page-header/page-header.component';
 import { PasswordComponent } from './page-header/page-header.component';
+import { ContributionComponent } from './one-project-page/one-project-page.component';
 
 // define all routes links
 const appRoutes = [
@@ -110,7 +110,8 @@ const appRoutes = [
     AccountPageComponent,
     RegisterPageComponent,
     LoginComponent,
-    PasswordComponent
+    PasswordComponent,
+    ContributionComponent
   ],
   imports: [
     BrowserModule,
@@ -159,12 +160,12 @@ const appRoutes = [
   entryComponents: [
     LoginComponent,
     PasswordComponent,
-    PageHeaderComponent
+    PageHeaderComponent,
+    ContributionComponent
   ],  
   providers: [
     // services imported
     AuthService, // authentification redirection
-    AuthGuard, // authentification redirection
     HttpService, // for HTTP request
     CookieService, // for use cookie
     HttpClientXsrfModule // for use csrf token (authentification)

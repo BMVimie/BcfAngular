@@ -1,28 +1,61 @@
 <!-- if project finded -->
 <div class="writings" *ngIf="projectToDisplay!=null">
+
+  <!-- GENERAL INFORMATIONS -->
   <!-- datas table -->
-  <table class="table table-striped" >
+  <table class="table table-striped">
     <tr>
       <td>
         <!-- display project name -->
         <h2>{{ projectToDisplay.projectName }}</h2>
         <br>
         <!-- display funding goal -->
-        Somme à collecter : {{ projectToDisplay.projectFundingGoal }} €
+        Somme à collectée : {{raisedFunds}} / {{ projectToDisplay.projectFundingGoal }} €
         <br>
         <!-- display term of crowdfunding -->
         Avant le {{ projectToDisplay.projectTerm | date: 'dd/MM/yyyy'}}
+        <br>
+        <button type="button" *ngIf="!authService.isAuth" mat-raised-button (click)="openContribution()" class="buttonMenu"
+          class="connection-button">
+          Contribuer à ce projet
+        </button>
       </td>
     </tr>
   </table>
 
-      <!-- loop on project comments -->
-      <div id="projectCommentInsert" class="writings" *ngFor="let comment of projectToDisplay.comments">
-        <!-- display comment date and name -->
-         {{ comment.commentDate | date: 'dd/MM/yyyy' }} : <h4>{{ comment.commentName }}</h4>
-         <!-- display comment text -->
-         {{comment.commentText}}
-      </div>
+  <h4>Description</h4>
+
+  <!-- COUNTERPARTS -->
+  <h4>Contre-parties</h4>
+  <!-- loop on project counterparts -->
+  <div id="projectCommentInsert" class="writings" *ngFor="let counterpart of projectToDisplay.projectCounterparts">
+    <!-- display counterpart price and name -->
+    Pour {{ counterpart.counterpartPrice }} € : <h5>{{ counterpart.counterpartName }}</h5>
+    <!-- display counterpart text -->
+    {{counterpart.counterpartDescription}}
+  </div>
+
+  <!-- PROJECT STEPS -->
+  <h4>Palliers</h4>
+  <!-- loop on project steps -->
+  <div id="projectCommentInsert" class="writings" *ngFor="let step of projectToDisplay.projectProjectSteps">
+    <!-- display project step level and name -->
+    {{ step.projectStepLevel }} : <h5>{{ step.projectStepName }}</h5>
+    <!-- display project image text -->
+    <img src=C:\Users\Valentin\Programmation\Formations\IMIE\Java\BCF{{step.projectStepImage.imageSrc}} width="100" alt="image pallier">
+    <!-- display project step text -->
+    {{step.projectStepDescription}}
+  </div>
+
+  <!-- COMMENTS -->
+  <h4>Commentaires</h4>
+  <!-- loop on project comments -->
+  <div id="projectCommentInsert" class="writings" *ngFor="let comment of projectToDisplay.comments">
+    <!-- display comment date and name -->
+    {{ comment.commentDate | date: 'dd/MM/yyyy' }} : <h5>{{ comment.commentName }}</h5>
+    <!-- display comment text -->
+    {{comment.commentText}}
+  </div>
 </div>
 
 <!-- if no data found -->

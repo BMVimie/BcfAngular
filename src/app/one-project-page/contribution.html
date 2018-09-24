@@ -1,0 +1,11 @@
+<h2 mat-dialog-title class="popup-title">Montant de votre contribution</h2>
+<mat-dialog-content>
+      <mat-form-field>
+        <input matInput class="form-control mr-sm-2" ngModel [(ngModel)]="datacontribution">
+      </mat-form-field>
+</mat-dialog-content> 
+<mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="datacontribution" cdkFocusInitial (click)="onClick()" 
+  class="popup-button-ok">Valider</button>
+  <button mat-button (click)="onNoClick()" class="popup-button-notok">Annuler</button>
+</mat-dialog-actions>

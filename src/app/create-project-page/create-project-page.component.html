@@ -1,4 +1,5 @@
-<div class="writings">
+<!-- if user authentified -->
+<div class="writings" *ngIf="authService.isAuth">
   <h2>Créer un projet</h2>
   <form (ngSubmit)="onSignIn(b)" #b="ngForm" class="form-inline">
       <table class="formTable">
@@ -158,3 +159,8 @@
       </table>
   </form>
 </div>
+
+<!-- if user not authentified -->
+<div class="writings" *ngIf="!authService.isAuth">
+    Veuillez vous connecter pour proposer un projet.
+  </div>

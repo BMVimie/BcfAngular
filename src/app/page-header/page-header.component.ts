@@ -1,15 +1,19 @@
 import { Component, OnInit, Inject, Input } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
+// import material to use modal
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-
 // import authentification service
 import { AuthService } from '../services/auth.service';
 
+// define interface to export datas
 export interface DialogData {
   login: string;
   password: string;
 }
 
+/////////////////////////
+// page header component
+/////////////////////////
 @Component({
   selector: 'app-page-header',
   templateUrl: './page-header.component.html',

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
-
 // import to use formulary
 import { NgForm } from '@angular/forms';
 // import our HTTP service
 import { HttpService } from '../services/http.service';
+// import authentification service
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-create-project-page',
@@ -16,7 +17,9 @@ export class CreateProjectPageComponent implements OnInit {
 
   constructor(
     // add HTTP service to this component
-    private httpService: HttpService
+    private httpService: HttpService,
+    // add authentification service to this component (to display page or not if user authentified)
+    private authService: AuthService
   ) { }
 
   ngOnInit() {

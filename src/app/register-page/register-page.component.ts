@@ -63,9 +63,7 @@ export class RegisterPageComponent implements OnInit {
     // send POST asynchronous request for user
     /////////////////////////////////
     let postUserResult = await this.httpService.postRawBody('user', requestBody);
-    console.log(postUserResult);
     await postUserResult.forEach((item) => {
-      console.log(item);
     });
   }
 }
