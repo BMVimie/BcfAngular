@@ -71,7 +71,6 @@ import { AccountPageComponent } from './account-page/account-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { LoginComponent } from './page-header/page-header.component';
 import { PasswordComponent } from './page-header/page-header.component';
-import { ContributionComponent } from './one-project-page/one-project-page.component';
 
 // define all routes links
 const appRoutes = [
@@ -110,8 +109,7 @@ const appRoutes = [
     AccountPageComponent,
     RegisterPageComponent,
     LoginComponent,
-    PasswordComponent,
-    ContributionComponent
+    PasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -160,8 +158,7 @@ const appRoutes = [
   entryComponents: [
     LoginComponent,
     PasswordComponent,
-    PageHeaderComponent,
-    ContributionComponent
+    PageHeaderComponent
   ],  
   providers: [
     // services imported

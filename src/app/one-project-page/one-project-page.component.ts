@@ -52,7 +52,6 @@ export class OneProjectPageComponent implements OnInit {
     let projectId = this.route.snapshot.params['id'];
     // get project in database
     this.projectToDisplay = await this.httpService.get('project/' + projectId);
-    console.log(this.projectToDisplay);
     // calculate all raised funds
     this.calculateRaisedFunds();
   }
@@ -65,39 +64,7 @@ export class OneProjectPageComponent implements OnInit {
       this.raisedFunds = this.raisedFunds + contribution.contributionGift;
     }
   }
-
-  openContribution(): void {
-    console.log(ContributionComponent);
-    const dialogContribution = this.dialog.open(ContributionComponent, {
-      width: '250px',
-    });
-
-    dialogContribution.afterClosed().subscribe(result => {
-      console.log(this.raisedFunds);
-      console.log(result);
-      this.raisedFunds = this.raisedFunds + result;
-      console.log(this.raisedFunds);
-    });
-  }
-
 }
 
-/////////////////////////
-// contribution component
-/////////////////////////
-@Component({
-  selector: 'app-contribution',
-  templateUrl: './contribution.html',
-})
-export class ContributionComponent {
-  constructor(
-    public dialogContribution: MatDialogRef<ContributionComponent>,
-    @Inject(MAT_DIALOG_DATA)
-    public data: DialogData,
-  ) { }
 
-  onNoClick(): void {
-    this.dialogContribution.close();
-  }
-}
 

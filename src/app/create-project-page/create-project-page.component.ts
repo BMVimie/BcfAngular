@@ -48,14 +48,10 @@ export class CreateProjectPageComponent implements OnInit {
       projectFundingGoal: projectFundingGoal
     };
 
-    console.log(requestBody);
-
     // send POST asynchronous request for user
     /////////////////////////////////
     let postProjectResult = await this.httpService.postRawBody('project', requestBody);
-    console.log(postProjectResult);
     await postProjectResult.forEach((item) => {
-      console.log(item);
     });
   }
 }

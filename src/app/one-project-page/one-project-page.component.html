@@ -8,27 +8,27 @@
       <td>
         <!-- display project name -->
         <h2>{{ projectToDisplay.projectName }}</h2>
-        <br>
         <!-- display funding goal -->
         Somme à collectée : {{raisedFunds}} / {{ projectToDisplay.projectFundingGoal }} €
         <br>
         <!-- display term of crowdfunding -->
         Avant le {{ projectToDisplay.projectTerm | date: 'dd/MM/yyyy'}}
         <br>
-        <button type="button" *ngIf="!authService.isAuth" mat-raised-button (click)="openContribution()" class="buttonMenu"
+        <!-- button to contribute -->
+        <button type="button" *ngIf="authService.isAuth" mat-raised-button class="buttonMenu"
           class="connection-button">
           Contribuer à ce projet
         </button>
+        <br>
+        <div *ngIf="!authService.isAuth">Connectez-vous pour contribuer à ce projet.</div>
       </td>
     </tr>
   </table>
 
-  <h4>Description</h4>
-
   <!-- COUNTERPARTS -->
-  <h4>Contre-parties</h4>
+  <h4>Contreparties</h4>
   <!-- loop on project counterparts -->
-  <div id="projectCommentInsert" class="writings" *ngFor="let counterpart of projectToDisplay.projectCounterparts">
+  <div id="counterpartInsert" class="writings" *ngFor="let counterpart of projectToDisplay.projectCounterparts">
     <!-- display counterpart price and name -->
     Pour {{ counterpart.counterpartPrice }} € : <h5>{{ counterpart.counterpartName }}</h5>
     <!-- display counterpart text -->
@@ -38,11 +38,9 @@
   <!-- PROJECT STEPS -->
   <h4>Palliers</h4>
   <!-- loop on project steps -->
-  <div id="projectCommentInsert" class="writings" *ngFor="let step of projectToDisplay.projectProjectSteps">
+  <div id="projectStepInsert" class="writings" *ngFor="let step of projectToDisplay.projectProjectSteps">
     <!-- display project step level and name -->
     {{ step.projectStepLevel }} : <h5>{{ step.projectStepName }}</h5>
-    <!-- display project image text -->
-    <img src=C:\Users\Valentin\Programmation\Formations\IMIE\Java\BCF{{step.projectStepImage.imageSrc}} width="100" alt="image pallier">
     <!-- display project step text -->
     {{step.projectStepDescription}}
   </div>

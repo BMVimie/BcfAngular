@@ -21,9 +21,11 @@
     --light-blue : rgb(198,216,241);
     --purple: rgb(179,25,149);
     --magenta: rgb(224,5,140);
+    --magenta-light: rgb(228, 130, 190);
     --orange: rgb(255,167,0);
     --orange-light: rgb(255, 207, 117);
     --yellow: hsl(57, 91%, 67%);
+    --yellow-light: hsl(58, 73%, 80%);
  }
 
 ////////////////////
@@ -417,6 +419,7 @@ footer {
     background-color: var(--magenta);
     color: var(--white);
 }
+
 ///////////////////
 ///////////////////
 //all projects page
@@ -463,6 +466,42 @@ footer {
     height:  fit-content;
     width: fit-content;
     // face
-    background-color: var(--orange-light);
+    background-color: var(--yellow-light);
+    border-radius: 20px;
+}
+
+#counterpartInsert{
+    // flex options
+    display: flex;
+    flex-direction: column;
+    // align options
+    align-content: space-between;
+    align-items: center;
+    // margin/padding
+    padding: 10px;
+    margin: 10px;
+    // size
+    height:  fit-content;
+    width: fit-content;
+    // face
+    background-color: var(--light-blue);
+    border-radius: 20px;
+}
+
+#projectStepInsert{
+    // flex options
+    display: flex;
+    flex-direction: column;
+    // align options
+    align-content: space-between;
+    align-items: center;
+    // margin/padding
+    padding: 10px;
+    margin: 10px;
+    // size
+    height:  fit-content;
+    width: fit-content;
+    // face
+    background-color: var(--magenta-light);
     border-radius: 20px;
 }

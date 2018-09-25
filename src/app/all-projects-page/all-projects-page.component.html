@@ -2,6 +2,16 @@
   <!-- page title -->
   <h1>Tous les projets</h1>
 
+  <!-- research -->
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" name="formSearchByName" 
+    placeholder="Entrez le type ou le nom d'un projet"
+      size="50">
+    <button class="btn btn-ieb glyphicon glyphicon-search" type="submit"></button>
+  </form>
+
+  <br>
+
   <!-- loop to get all projects from this component TypeScripts-->
   <div id="allProjectsList">
     <!-- for one project insert -->
@@ -12,59 +22,6 @@
       jusqu'au {{ project.projectTerm | date: 'dd/MM/yyyy' }}
     </div>
   </div>
-
-  <!-- research -->
-  <p>Vous pouvez chercher un projet par son nom...</p>
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" name="formSearchByName" placeholder="entrez le nom d'un projet"
-      size="50">
-    <button class="btn btn-ieb glyphicon glyphicon-search" type="submit"></button>
-  </form>
-
-  <!-- filter -->
-  <p>...ou filtrer les projets par catégories</p>
-
-  <form class="formPadding" method="post" action="traitement.php">
-    <input type="checkbox" class="custom-checkbox" name="searchProjectCatBusiness" id="searchProjectCatBusiness" />
-    <label class="labelCheckbox" for="searchProjectCatBusiness">Entrepreneuriat</label><br />
-    <input type="checkbox" name="searchProjectCatAgriculture" id="searchProjectCatAgriculture" />
-    <label class="labelCheckbox" for="searchProjectCatAgriculture">Agriculture</label><br />
-    <input type="checkbox" name="searchProjectCatArtPhoto" id="searchProjectCatArtPhoto" />
-    <label class="labelCheckbox" for="searchProjectCatArtPhoto">Art et Photo</label><br />
-    <input type="checkbox" name="searchProjectCatCraftCook" id="searchProjectCatCraftCook" />
-    <label class="labelCheckbox" for="searchProjectCatCraftCook">Artisanat et cuisine</label><br />
-    <input type="checkbox" name="searchProjectCatOthers" id="searchProjectCatOthers" />
-    <label class="labelCheckbox" for="searchProjectCatOthers">Autres projets</label><br />
-    <input type="checkbox" name="searchProjectCatComicsIllustrations" id="searchProjectCatComicsIllustrations" />
-    <label class="labelCheckbox" for="searchProjectCatComicsIllustrations">BD et Illustrations</label><br />
-    <input type="checkbox" name="searchProjectCatEcology" id="searchProjectCatEcology" />
-    <label class="labelCheckbox" for="searchProjectCatEcology">Écologie</label><br />
-    <input type="checkbox" name="searchProjectCatPublishingJournalism" id="searchProjectCatPublishingJournalism" />
-    <label class="labelCheckbox" for="searchProjectCatPublishingJournalism">Édition et Journalisme</label><br />
-    <input type="checkbox" name="searchProjectCatChildrenEducation" id="searchProjectCatChildrenEducation" />
-    <label class="labelCheckbox" for="searchProjectCatChildrenEducation">Enfance et Éducation</label><br />
-    <input type="checkbox" name="searchProjectCatGames" id="searchProjectCatGames" />
-    <label class="labelCheckbox" for="searchProjectCatGames">Jeux</label><br />
-    <input type="checkbox" name="searchProjectCatFashionDesign" id="searchProjectCatFashionDesign" />
-    <label class="labelCheckbox" for="searchProjectCatFashionDesign">Mode et Design</label><br />
-    <input type="checkbox" name="searchProjectCatMusic" id="searchProjectCatMusic" />
-    <label class="labelCheckbox" for="searchProjectCatMusic">Musique</label><br />
-    <input type="checkbox" name="searchProjectCatHeritage" id="searchProjectCatHeritage" />
-    <label class="labelCheckbox" for="searchProjectCatHeritage">Patrimoine</label><br />
-    <input type="checkbox" name="searchProjectCatHealth" id="searchProjectCatHealth" />
-    <label class="labelCheckbox" for="searchProjectCatHealth">Santé</label><br />
-    <input type="checkbox" name="searchProjectCatSolidarityCitizen" id="searchProjectCatSolidarityCitizen" />
-    <label class="labelCheckbox" for="searchProjectCatSolidarityCitizen">Solidaire et Citoyen</label><br />
-    <input type="checkbox" name="searchProjectCatLivePerformance" id="searchProjectCatLivePerformance" />
-    <label class="labelCheckbox" for="searchProjectCatLivePerformance">Spectacle vivant</label><br />
-    <input type="checkbox" name="searchProjectCatSports" id="searchProjectCatSports" />
-    <label class="labelCheckbox" for="searchProjectCatSports">Sports</label><br />
-    <input type="checkbox" name="searchProjectCatTechnology" id="searchProjectCatTechnology" />
-    <label class="labelCheckbox" for="searchProjectCatTechnology">Technologie</label><br />
-    <input type="checkbox" name="searchProjectCatVideo" id="searchProjectCatVideo" />
-    <label class="labelCheckbox" for="searchProjectCatVideo">Video</label><br />
-    <button class="btn btn-ieb glyphicon glyphicon-search" type="submit"></button>
-  </form>
 
   <br>
 
