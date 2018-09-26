@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
 // import activated route to get parameters in URL
 import { ActivatedRoute } from '@angular/router';
